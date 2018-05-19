@@ -1,0 +1,1 @@
+SQLCMD -S DESKTOP-2C2OF6D -E -i CreateDB.sql
