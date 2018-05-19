@@ -64,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="chuxeBus.vb" />
+    <Compile Include="Class1.vb" />
+    <Compile Include="Class2.vb" />
     <Compile Include="hieuxeBus.vb" />
     <Compile Include="phieuthuBus.vb" />
     <Compile Include="tiepnhanxeBus.vb" />
