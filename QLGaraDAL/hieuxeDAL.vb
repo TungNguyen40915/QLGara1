@@ -124,7 +124,7 @@ Public Class hieuxeDAL
         Return New Result(True) ' thanh cong
     End Function
 
-    Public Function select_ByMahieuxe(id As Integer, ByRef cx As hieuxeDTO) As Result
+    Public Function select_ByMahieuxe(id As String, ByRef cx As hieuxeDTO) As Result
 
         Dim query As String = String.Empty
         query &= " SELECT [mahieuxe], [tenhieuxe] "

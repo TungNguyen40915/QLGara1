@@ -180,7 +180,7 @@ Public Class chuxeDAL
     Public Function update(cx As chuxeDTO) As Result
 
         Dim query As String = String.Empty
-        query &= " UPDATE [tbChuXe] SET"
+        query &= " UPDATE [tblChuXe] SET"
         query &= " [machuxe] = @machuxe "
         query &= " ,[tenchuxe] = @tenchuxe "
         query &= " ,[diachi] = @diachi "

@@ -48,88 +48,17 @@ Public Class phieuthuDAL
 
     Public Function buildMP(dt As DateTime, ByRef nextMP As String) As Result
 
-#Region "hoi thay"
-        'Dim a As DateTime
-        'a = Convert.ToDateTime(dt)
-
-        'Dim query As String = String.Empty
-        'query &= "SELECT TOP 1 [matiepnhan] "
-        'query &= "FROM [tblTiepNhan] "
-        'query &= " WHERE "
-        'query &= "     [ngaytiepnhan] = @ngaytiepnhan"
-        'query &= "  ORDER BY [matiepnhan] DESC "
-
-        'Using conn As New SqlConnection(connectionString)
-        '    Using comm As New SqlCommand()
-        '        With comm
-        '            .Connection = conn
-        '            .CommandType = CommandType.Text
-        '            .CommandText = query
-        '            .Parameters.AddWithValue("@ngaytiepnhan", a)
-        '        End With
-        '        Try
-        '            conn.Open()
-        '            Dim reader As SqlDataReader
-        '            reader = comm.ExecuteReader()
-        '            Dim msOnDB As String
-        '            msOnDB = Nothing
-        '            If reader.HasRows = True Then
-        '                While reader.Read()
-        '                    msOnDB = reader("matiepnhan")
-        '                End While
-        '            End If
-        '            If (msOnDB <> Nothing) Then
-        '                Dim dtonDB = msOnDB.Substring(0, 6)
-        '                nextMP = dtonDB
-        '                Dim sttonDB = msOnDB.Substring(6, 2)
-        '                Dim cv = Convert.ToDecimal(sttonDB)
-        '                cv = cv + 1
-        '                If (cv.ToString().Length = 1) Then
-        '                    nextMP = nextMP + "0" + cv.ToString()
-        '                Else
-        '                    nextMP = nextMP + cv.ToString()
-        '                End If
-        '            Else
-        '                Dim y = dt.Year.ToString().Substring(2, 2)
-        '                Dim m = dt.Month.ToString()
-        '                Dim d = dt.Day().ToString()
-
-        '                If (m.Length = 1) Then
-        '                    nextMP = y + "0" + m
-        '                Else
-        '                    nextMP = y + m
-        '                End If
-
-
-        '                If (d.Length = 1) Then
-        '                    nextMP = nextMP + "0" + d
-        '                Else
-        '                    nextMP = nextMP + d
-        '                End If
-
-        '                nextMP = nextMP + "01"
-
-
-        '            End If
-
-
-
-        '        Catch ex As Exception
-        '            conn.Close() ' that bai!!!
-        '            System.Console.WriteLine(ex.StackTrace)
-        '            Return New Result(False, "Lấy tự động Mã tiếp nhận kế tiếp không thành công", ex.StackTrace)
-        '        End Try
-        '    End Using
-        'End Using
-        'Return New Result(True) ' thanh cong
-#End Region
-
-
         nextMP = "PT"
         Dim query As String = String.Empty
         query &= "SELECT TOP 1 [maphieu] "
         query &= "FROM [tblPhieuThu] "
-        query &= "ORDER BY [maphieu] DESC "
+        query &= " WHERE "
+        query &= "     day([ngaythu]) = @ngay"
+        query &= " AND "
+        query &= "     month([ngaythu]) = @thang"
+        query &= " AND "
+        query &= "     year([ngaythu]) = @nam"
+        query &= "  ORDER BY [maphieu] DESC "
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
@@ -137,6 +66,9 @@ Public Class phieuthuDAL
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
+                    .Parameters.AddWithValue("@ngay", dt.Day)
+                    .Parameters.AddWithValue("@thang", dt.Month)
+                    .Parameters.AddWithValue("@nam", dt.Year)
                 End With
                 Try
                     conn.Open()
@@ -150,25 +82,55 @@ Public Class phieuthuDAL
                         End While
                     End If
                     If (msOnDB <> Nothing) Then
-                        Dim v = msOnDB.Substring(2, 6)
-                        Dim convertDecimal = Convert.ToDecimal(v)
-                        convertDecimal = convertDecimal + 1
-                        Dim tmp = convertDecimal.ToString()
-                        tmp = tmp.PadLeft(msOnDB.Length - 2, "0")
-                        nextMP = nextMP + tmp
-                        System.Console.WriteLine(nextMP)
+                        Dim dtonDB = msOnDB.Substring(0, 8)
+                        nextMP = dtonDB
+                        Dim sttonDB = msOnDB.Substring(8, 2)
+                        Dim cv = Convert.ToDecimal(sttonDB)
+                        cv = cv + 1
+                        If (cv.ToString().Length = 1) Then
+                            nextMP = nextMP + "0" + cv.ToString()
+                        Else
+                            nextMP = nextMP + cv.ToString()
+                        End If
                     Else
-                        nextMP = nextMP + "000001"
+                        Dim y = dt.Year.ToString().Substring(2, 2)
+                        Dim m = dt.Month.ToString()
+                        Dim d = dt.Day().ToString()
+
+                        If (m.Length = 1) Then
+                            nextMP = nextMP + y + "0" + m
+                        Else
+                            nextMP = nextMP + y + m
+                        End If
+
+
+                        If (d.Length = 1) Then
+                            nextMP = nextMP + "0" + d + "01"
+                        Else
+                            nextMP = nextMP + d + "01"
+                        End If
+
+
+
+
                     End If
+
+
 
                 Catch ex As Exception
                     conn.Close() ' that bai!!!
                     System.Console.WriteLine(ex.StackTrace)
-                    Return New Result(False, "Lấy tự động mã phiếu kế tiếp không thành công", ex.StackTrace)
+                    Return New Result(False, "Lấy tự động Mã tiếp nhận kế tiếp không thành công", ex.StackTrace)
                 End Try
             End Using
         End Using
         Return New Result(True) ' thanh cong
+
+
+
+
+
+
     End Function
 
 

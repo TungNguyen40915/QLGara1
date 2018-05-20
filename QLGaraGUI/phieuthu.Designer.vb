@@ -33,7 +33,7 @@ Partial Class phieuthu
         Me.tbhotenchuxe = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.cbbbienso = New System.Windows.Forms.ComboBox()
+        Me.tbbiensoxe = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.tbmaphieu = New System.Windows.Forms.TextBox()
@@ -145,27 +145,20 @@ Partial Class phieuthu
         '
         'Panel3
         '
-        Me.Panel3.Controls.Add(Me.cbbbienso)
+        Me.Panel3.Controls.Add(Me.tbbiensoxe)
         Me.Panel3.Controls.Add(Me.Label2)
         Me.Panel3.Location = New System.Drawing.Point(17, 69)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(709, 49)
         Me.Panel3.TabIndex = 2
         '
-        'cbbbienso
+        'tbbiensoxe
         '
-        Me.cbbbienso.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.cbbbienso.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cbbbienso.DropDownHeight = 1
-        Me.cbbbienso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple
-        Me.cbbbienso.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.cbbbienso.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbbbienso.FormattingEnabled = True
-        Me.cbbbienso.IntegralHeight = False
-        Me.cbbbienso.Location = New System.Drawing.Point(249, 13)
-        Me.cbbbienso.Name = "cbbbienso"
-        Me.cbbbienso.Size = New System.Drawing.Size(445, 37)
-        Me.cbbbienso.TabIndex = 1
+        Me.tbbiensoxe.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbbiensoxe.Location = New System.Drawing.Point(249, 4)
+        Me.tbbiensoxe.Name = "tbbiensoxe"
+        Me.tbbiensoxe.Size = New System.Drawing.Size(445, 39)
+        Me.tbbiensoxe.TabIndex = 1
         '
         'Label2
         '
@@ -265,11 +258,11 @@ Partial Class phieuthu
     Friend WithEvents tbhotenchuxe As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents cbbbienso As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents tbmaphieu As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents btluu As Button
     Friend WithEvents btin As Button
+    Friend WithEvents tbbiensoxe As TextBox
 End Class

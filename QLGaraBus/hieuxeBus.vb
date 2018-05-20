@@ -31,7 +31,7 @@ Public Class hieuxeBus
         Return hxDAL.selectALL(listLoaiHS)
     End Function
 
-    Public Function select_ByMahieuxe(id As Integer, ByRef cx As hieuxeDTO) As Result
+    Public Function select_ByMahieuxe(id As String, ByRef cx As hieuxeDTO) As Result
         '1. verify data here!!
 
         '2. insert to DB

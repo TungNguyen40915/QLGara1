@@ -29,10 +29,10 @@ Partial Class tiepnhanxe
         Me.tbbiensoxe = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.tbmatiepnhan = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.dtngaytiepnhan = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.tbmatiepnhan = New System.Windows.Forms.TextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.tbtenchuxe = New System.Windows.Forms.TextBox()
         Me.tbdienthoai = New System.Windows.Forms.TextBox()
@@ -44,6 +44,8 @@ Partial Class tiepnhanxe
         Me.Label6 = New System.Windows.Forms.Label()
         Me.btluu = New System.Windows.Forms.Button()
         Me.btthoat = New System.Windows.Forms.Button()
+        Me.tbsolan = New System.Windows.Forms.TextBox()
+        Me.labelsolan = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -109,29 +111,20 @@ Partial Class tiepnhanxe
         '
         'Panel2
         '
-        Me.Panel2.Controls.Add(Me.tbmatiepnhan)
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.dtngaytiepnhan)
         Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.tbmatiepnhan)
         Me.Panel2.Location = New System.Drawing.Point(29, 36)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1036, 83)
         Me.Panel2.TabIndex = 1
         '
-        'tbmatiepnhan
-        '
-        Me.tbmatiepnhan.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbmatiepnhan.Location = New System.Drawing.Point(242, 21)
-        Me.tbmatiepnhan.Name = "tbmatiepnhan"
-        Me.tbmatiepnhan.ReadOnly = True
-        Me.tbmatiepnhan.Size = New System.Drawing.Size(276, 44)
-        Me.tbmatiepnhan.TabIndex = 3
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(13, 24)
+        Me.Label2.Location = New System.Drawing.Point(3, 24)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(228, 37)
         Me.Label2.TabIndex = 2
@@ -155,6 +148,15 @@ Partial Class tiepnhanxe
         Me.Label1.Size = New System.Drawing.Size(250, 37)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Ngày Tiếp Nhận"
+        '
+        'tbmatiepnhan
+        '
+        Me.tbmatiepnhan.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbmatiepnhan.Location = New System.Drawing.Point(242, 24)
+        Me.tbmatiepnhan.Name = "tbmatiepnhan"
+        Me.tbmatiepnhan.ReadOnly = True
+        Me.tbmatiepnhan.Size = New System.Drawing.Size(276, 44)
+        Me.tbmatiepnhan.TabIndex = 3
         '
         'Panel3
         '
@@ -267,12 +269,33 @@ Partial Class tiepnhanxe
         Me.btthoat.Text = "Thoát"
         Me.btthoat.UseVisualStyleBackColor = True
         '
+        'tbsolan
+        '
+        Me.tbsolan.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbsolan.Location = New System.Drawing.Point(1028, 466)
+        Me.tbsolan.Name = "tbsolan"
+        Me.tbsolan.ReadOnly = True
+        Me.tbsolan.Size = New System.Drawing.Size(57, 30)
+        Me.tbsolan.TabIndex = 5
+        '
+        'labelsolan
+        '
+        Me.labelsolan.AutoSize = True
+        Me.labelsolan.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.labelsolan.Location = New System.Drawing.Point(862, 466)
+        Me.labelsolan.Name = "labelsolan"
+        Me.labelsolan.Size = New System.Drawing.Size(149, 25)
+        Me.labelsolan.TabIndex = 4
+        Me.labelsolan.Text = "số lần tiếp nhận"
+        '
         'tiepnhanxe
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1084, 596)
         Me.ControlBox = False
+        Me.Controls.Add(Me.tbsolan)
+        Me.Controls.Add(Me.labelsolan)
         Me.Controls.Add(Me.btthoat)
         Me.Controls.Add(Me.btluu)
         Me.Controls.Add(Me.Panel3)
@@ -291,6 +314,7 @@ Partial Class tiepnhanxe
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -316,4 +340,6 @@ Partial Class tiepnhanxe
     Friend WithEvents btthoat As Button
     Friend WithEvents tbtenchuxe As TextBox
     Friend WithEvents Label9 As Label
+    Friend WithEvents tbsolan As TextBox
+    Friend WithEvents labelsolan As Label
 End Class

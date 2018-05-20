@@ -27,6 +27,6 @@ Public Class tiepnhanxeBus
         '1. verify data here!!
 
         '2. insert to DB
-        Return tnxDAL.check(dt, solan)
+        Return tnxDAL.dem(dt, solan)
     End Function
 End Class

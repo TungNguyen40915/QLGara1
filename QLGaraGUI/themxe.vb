@@ -7,10 +7,14 @@ Public Class themxe
     Private xBus As xeBus
     Private cxBus As chuxeBus
     Private hxBus As hieuxeBus
+    Private chuxegia As chuxeDTO
+    Private hieuxegia As hieuxeDTO
     Private Sub themxe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         xBus = New xeBus()
         cxBus = New chuxeBus()
         hxBus = New hieuxeBus()
+        chuxegia = New chuxeDTO()
+        hieuxegia = New hieuxeDTO()
 
 
         Dim listchuxe = New List(Of chuxeDTO)
@@ -75,7 +79,7 @@ Public Class themxe
                 tbbienso.Text = String.Empty
 
             Else
-                MessageBox.Show("Thêm hiệu xe không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Thêm xe không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 System.Console.WriteLine(result.SystemMessage)
             End If
         Else
@@ -94,27 +98,18 @@ Public Class themxe
     End Function
 
 
-    Private Sub tbmachuxe_KeyDown(sender As Object, e As KeyEventArgs) Handles tbmachuxe.KeyDown
-        Dim temp = cbbtenchuxe.SelectedItem
-        If (e.KeyCode = Keys.Enter) Then
-            Dim a = New chuxeDTO
-            If (loadchuxe(a) = False) Then
-                Dim b = "Không tìm thấy chủ xe có mã là " + tbmachuxe.Text
-                MessageBox.Show(b, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                cbbtenchuxe.SelectedItem = temp
-                tbmachuxe.Text = temp.machuxe
-            Else
-                cbbtenchuxe.Text = a.Tenchuxe
-            End If
-        End If
 
 
-    End Sub
 
 
-    Private Function loadhieuxe(ByRef a As hieuxeDTO)
+
+
+
+
+
+    Private Function loadhieuxe(ByRef a As hieuxeDTO) As Boolean
         Dim result As Result
-        result = hxBus.select_ByMahieuxe(Convert.ToInt32(tbmahieuxe.Text), a)
+        result = hxBus.select_ByMahieuxe((tbmahieuxe.Text), a)
         If (result.FlagResult = False) Then
             Return False
         Else
@@ -124,8 +119,19 @@ Public Class themxe
 
 
 
+
+
+
+
+
+
+
+
+
     Private Function kiemtra()
-        If (tbbienso.Text = Nothing Or tbmachuxe.Text = Nothing Or tbmahieuxe.Text = Nothing) Then
+        Dim a As chuxeDTO
+        Dim b As hieuxeDTO
+        If (tbbienso.Text = Nothing Or tbmachuxe.Text = Nothing Or tbmahieuxe.Text = Nothing Or loadchuxe(a) = False Or loadhieuxe(b) = False) Then
             Return False
         Else
             Return True
@@ -191,5 +197,25 @@ Public Class themxe
         End If
     End Sub
 
+    Private Sub tbmachuxe_TextChanged(sender As Object, e As EventArgs) Handles tbmachuxe.TextChanged
+        Dim a = New chuxeDTO
+        If (loadchuxe(a) = False) Then
 
+            cbbtenchuxe.Text = ""
+            '   tbmachuxe.Text = chuxegia.Machuxe
+        Else
+            cbbtenchuxe.Text = a.Tenchuxe
+        End If
+    End Sub
+
+    Private Sub tbmahieuxe_TextChanged(sender As Object, e As EventArgs) Handles tbmahieuxe.TextChanged
+        Dim a = New hieuxeDTO
+        If (loadhieuxe(a) = False) Then
+
+            cbbtenhieuxe.Text = ""
+            '   tbmahieuxe.Text = ""
+        Else
+            cbbtenhieuxe.Text = a.Tenhieuxe
+        End If
+    End Sub
 End Class
