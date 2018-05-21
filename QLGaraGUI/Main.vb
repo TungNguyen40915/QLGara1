@@ -20,4 +20,9 @@ Public Class Main
         Dim newf = New phieuthu()
         newf.ShowDialog(Me)
     End Sub
+
+    Private Sub btlapbaocaotheothang_Click(sender As Object, e As EventArgs) Handles btlapbaocaotheothang.Click
+        Dim newf = New baocaothang()
+        newf.ShowDialog(Me)
+    End Sub
 End Class
