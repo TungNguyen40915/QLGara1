@@ -16,7 +16,7 @@ Public Class themhieuxe
         If (result.FlagResult = True) Then
             tbmahieuxe.Text = nextID.ToString()
         Else
-            MessageBox.Show("Lấy ID kế tiếp của Loại học sinh không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Lấy ID kế tiếp của Hiệu Xe không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             System.Console.WriteLine(result.SystemMessage)
         End If
 

@@ -78,6 +78,12 @@
     <Compile Include="baocaothang.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="lapphieusuachua.Designer.vb">
+      <DependentUpon>lapphieusuachua.vb</DependentUpon>
+    </Compile>
+    <Compile Include="lapphieusuachua.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Main.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,18 @@
     <Compile Include="themhieuxe.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="themnoidung.Designer.vb">
+      <DependentUpon>themnoidung.vb</DependentUpon>
+    </Compile>
+    <Compile Include="themnoidung.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="themvattu.Designer.vb">
+      <DependentUpon>themvattu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="themvattu.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="themxe.Designer.vb">
       <DependentUpon>themxe.vb</DependentUpon>
     </Compile>
@@ -141,6 +159,9 @@
     <EmbeddedResource Include="baocaothang.resx">
       <DependentUpon>baocaothang.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="lapphieusuachua.resx">
+      <DependentUpon>lapphieusuachua.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>
@@ -158,6 +179,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="themhieuxe.resx">
       <DependentUpon>themhieuxe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="themnoidung.resx">
+      <DependentUpon>themnoidung.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="themvattu.resx">
+      <DependentUpon>themvattu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="themxe.resx">
       <DependentUpon>themxe.vb</DependentUpon>

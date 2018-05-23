@@ -26,6 +26,7 @@ Partial Class Main
         Me.bttracuuxe = New System.Windows.Forms.Button()
         Me.btlapphieuthu = New System.Windows.Forms.Button()
         Me.btlapbaocaotheothang = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'bttiepnhanxe
@@ -64,11 +65,21 @@ Partial Class Main
         Me.btlapbaocaotheothang.Text = "Lập Báo Cáo Doanh Thu Theo Tháng"
         Me.btlapbaocaotheothang.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(87, 454)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(345, 57)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Lập Phiếu Sửa Chữa"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1059, 538)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btlapbaocaotheothang)
         Me.Controls.Add(Me.btlapphieuthu)
         Me.Controls.Add(Me.bttracuuxe)
@@ -83,4 +94,5 @@ Partial Class Main
     Friend WithEvents bttracuuxe As Button
     Friend WithEvents btlapphieuthu As Button
     Friend WithEvents btlapbaocaotheothang As Button
+    Friend WithEvents Button1 As Button
 End Class

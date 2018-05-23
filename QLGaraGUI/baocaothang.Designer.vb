@@ -27,23 +27,17 @@ Partial Class baocaothang
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.tbdoanhthu = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.nudnam = New System.Windows.Forms.NumericUpDown()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.nudthang = New System.Windows.Forms.NumericUpDown()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.tbmabaocao = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btluu = New System.Windows.Forms.Button()
+        Me.dtpngay = New System.Windows.Forms.DateTimePicker()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvchitiet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
-        Me.Panel4.SuspendLayout()
-        CType(Me.nudnam, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
-        CType(Me.nudthang, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -51,7 +45,6 @@ Partial Class baocaothang
         '
         Me.Panel1.Controls.Add(Me.dgvchitiet)
         Me.Panel1.Controls.Add(Me.Panel5)
-        Me.Panel1.Controls.Add(Me.Panel4)
         Me.Panel1.Controls.Add(Me.Panel3)
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Location = New System.Drawing.Point(13, 13)
@@ -96,55 +89,14 @@ Partial Class baocaothang
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "Tổng Doanh Thu"
         '
-        'Panel4
-        '
-        Me.Panel4.Controls.Add(Me.nudnam)
-        Me.Panel4.Controls.Add(Me.Label3)
-        Me.Panel4.Location = New System.Drawing.Point(364, 90)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(263, 63)
-        Me.Panel4.TabIndex = 3
-        '
-        'nudnam
-        '
-        Me.nudnam.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nudnam.Location = New System.Drawing.Point(120, 14)
-        Me.nudnam.Maximum = New Decimal(New Integer() {2030, 0, 0, 0})
-        Me.nudnam.Minimum = New Decimal(New Integer() {2000, 0, 0, 0})
-        Me.nudnam.Name = "nudnam"
-        Me.nudnam.Size = New System.Drawing.Size(121, 35)
-        Me.nudnam.TabIndex = 1
-        Me.nudnam.Value = New Decimal(New Integer() {2000, 0, 0, 0})
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(17, 14)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(74, 32)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "Năm"
-        '
         'Panel3
         '
-        Me.Panel3.Controls.Add(Me.nudthang)
+        Me.Panel3.Controls.Add(Me.dtpngay)
         Me.Panel3.Controls.Add(Me.Label2)
         Me.Panel3.Location = New System.Drawing.Point(125, 90)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(209, 63)
+        Me.Panel3.Size = New System.Drawing.Size(499, 63)
         Me.Panel3.TabIndex = 2
-        '
-        'nudthang
-        '
-        Me.nudthang.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nudthang.Location = New System.Drawing.Point(120, 14)
-        Me.nudthang.Maximum = New Decimal(New Integer() {12, 0, 0, 0})
-        Me.nudthang.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.nudthang.Name = "nudthang"
-        Me.nudthang.Size = New System.Drawing.Size(68, 35)
-        Me.nudthang.TabIndex = 1
-        Me.nudthang.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'Label2
         '
@@ -152,9 +104,9 @@ Partial Class baocaothang
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(17, 14)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(96, 32)
+        Me.Label2.Size = New System.Drawing.Size(163, 32)
         Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Tháng"
+        Me.Label2.Text = "Tháng/Năm"
         '
         'Panel2
         '
@@ -193,6 +145,16 @@ Partial Class baocaothang
         Me.btluu.Text = "Lưu"
         Me.btluu.UseVisualStyleBackColor = True
         '
+        'dtpngay
+        '
+        Me.dtpngay.CustomFormat = "MM/yyyy"
+        Me.dtpngay.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpngay.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpngay.Location = New System.Drawing.Point(239, 14)
+        Me.dtpngay.Name = "dtpngay"
+        Me.dtpngay.Size = New System.Drawing.Size(257, 44)
+        Me.dtpngay.TabIndex = 2
+        '
         'baocaothang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -210,12 +172,8 @@ Partial Class baocaothang
         CType(Me.dgvchitiet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
-        Me.Panel4.ResumeLayout(False)
-        Me.Panel4.PerformLayout()
-        CType(Me.nudnam, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.nudthang, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
@@ -227,14 +185,11 @@ Partial Class baocaothang
     Friend WithEvents Panel5 As Panel
     Friend WithEvents tbdoanhthu As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents Panel4 As Panel
-    Friend WithEvents nudnam As NumericUpDown
-    Friend WithEvents Label3 As Label
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents nudthang As NumericUpDown
     Friend WithEvents Label2 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents tbmabaocao As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents btluu As Button
+    Friend WithEvents dtpngay As DateTimePicker
 End Class

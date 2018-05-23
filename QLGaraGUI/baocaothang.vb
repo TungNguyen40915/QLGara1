@@ -8,16 +8,18 @@ Public Class baocaothang
     Private Sub baocaothang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         bcBus = New baocaothangBus()
 
-        nudthang.Value = Now.Month()
-        nudnam.Value = Now.Year()
+        dtpngay.Value = Now
+        tbdoanhthu.Text = "0"
+
         loadID()
+
     End Sub
 
     Private Function loadID() As Boolean
         Dim result As Result
         Dim nextID As String
         nextID = Nothing
-        result = bcBus.buildMBC(nudthang.Value, nudnam.Value, nextID)
+        result = bcBus.buildMBC(dtpngay.Value.Month, dtpngay.Value.Year, nextID)
         If (result.FlagResult = True) Then
             tbmabaocao.Text = nextID.ToString()
             Return True
@@ -27,6 +29,8 @@ Public Class baocaothang
         End If
         Return False
     End Function
+
+
 
     Private Function builddgvchitiet(list As List(Of baocaothangDTO))
         dgvchitiet.DataSource = Nothing
@@ -71,4 +75,11 @@ Public Class baocaothang
 
         Return True
     End Function
+
+    Private Sub dtpngay_ValueChanged(sender As Object, e As EventArgs) Handles dtpngay.ValueChanged
+        loadID()
+    End Sub
+
+
+
 End Class

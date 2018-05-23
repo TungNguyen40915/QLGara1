@@ -64,10 +64,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="baocaothangBus.vb" />
+    <Compile Include="chitietphieusuachuaBus.vb" />
     <Compile Include="chuxeBus.vb" />
     <Compile Include="hieuxeBus.vb" />
+    <Compile Include="noidungBus.vb" />
+    <Compile Include="phieusuachuaBus.vb" />
     <Compile Include="phieuthuBus.vb" />
     <Compile Include="tiepnhanxeBus.vb" />
+    <Compile Include="vattuBus.vb" />
     <Compile Include="xeBus.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

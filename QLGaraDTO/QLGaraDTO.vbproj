@@ -64,11 +64,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="baocaothangDTO.vb" />
+    <Compile Include="chitietbaocaothangDTO.vb" />
+    <Compile Include="chitietphieusuachuaDTO.vb" />
     <Compile Include="chuxeDTO.vb" />
     <Compile Include="hieuxeDTO.vb" />
+    <Compile Include="noidungDTO.vb" />
+    <Compile Include="phieusuachuaDTO.vb" />
     <Compile Include="phieuthuDTO.vb" />
+    <Compile Include="suachuaDTO.vb" />
     <Compile Include="tiepnhanxeDTO.vb" />
     <Compile Include="tracuuxeDTO.vb" />
+    <Compile Include="vattuDTO.vb" />
     <Compile Include="xeDTO.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
