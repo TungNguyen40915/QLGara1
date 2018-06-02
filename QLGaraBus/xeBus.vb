@@ -27,6 +27,13 @@ Public Class xeBus
         Return xDAL.select_Bybiensoxe(id, cx)
     End Function
 
+    Public Function select_Bymavung(id As String, ByRef listxe As List(Of xeDTO)) As Result
+        '1. verify data here!!
+
+        '2. insert to DB
+        Return xDAL.select_Bymavung(id, listxe)
+    End Function
+
     Public Function select_Bymachuxe(id As String, ByRef listxe As List(Of xeDTO)) As Result
         '1. verify data here!!
 
@@ -59,5 +66,19 @@ Public Class xeBus
 
         '2. insert to DB
         Return xDAL.delete(bienso)
+    End Function
+
+    Public Function CheckAndStandardization(x As xeDTO) As Boolean
+        If x.Bienso.Length = 0 Then
+            Return False
+        End If
+
+        Dim b = String.Empty
+        For Each item In x.Bienso
+            b = b + UCase(item)
+        Next
+
+        x.Bienso = b
+        Return True
     End Function
 End Class

@@ -12,6 +12,9 @@ Public Class tracuuxe
     Private chuxegia As chuxeDTO
     Private hieuxegia As hieuxeDTO
     Private listxetracuu As List(Of tracuuxeDTO)
+
+
+
     Private Sub tracuuxe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         xBus = New xeBus()
         cxBus = New chuxeBus()
@@ -65,7 +68,7 @@ Public Class tracuuxe
 
     Private Function buildgv(listxe As List(Of tracuuxeDTO)) As Boolean
 
-        dgv.DataSource = Nothing
+        ' dgv.DataSource = Nothing
         dgv.Columns.Clear()
 
         dgv.AutoGenerateColumns = False
@@ -120,34 +123,7 @@ Public Class tracuuxe
         tbmahieuxe.Text = hieuxe.Mahieuxe
     End Sub
 
-    Private Sub tbbienso_TextChanged(sender As Object, e As EventArgs) Handles tbbienso.TextChanged
-        If (tbbienso.Text = Nothing) Then
-            tbmachuxe.Enabled = True
-            tbmahieuxe.Enabled = True
-            cbbtenchuxe.Enabled = True
-            cbbtenhieuxe.Enabled = True
-        Else
-            tbmachuxe.Enabled = False
-            tbmahieuxe.Enabled = False
-            cbbtenchuxe.Enabled = False
-            cbbtenhieuxe.Enabled = False
 
-            Dim a = New xeDTO()
-            Dim result As Result
-            result = xBus.select_Bybienso(tbbienso.Text, a)
-            If (result.FlagResult = True) Then
-                Dim b = New hieuxeDTO()
-                result = hxBus.select_ByMahieuxe(a.Mahieuxe, b)
-                Dim c = New chuxeDTO()
-                result = cxBus.select_ByMachuxe(a.Machuxe, c)
-                listxetracuu.Add(New tracuuxeDTO(a.Bienso, c.Tenchuxe, b.Tenhieuxe, c.Tienno, b.Mahieuxe, c.Machuxe))
-                buildgv(listxetracuu)
-            Else
-                listxetracuu.Clear()
-                buildgv(listxetracuu)
-            End If
-        End If
-    End Sub
 
     Private Sub tbmachuxe_TextChanged(sender As Object, e As EventArgs) Handles tbmachuxe.TextChanged
         If (tbmachuxe.Text <> Nothing) Then
@@ -160,30 +136,11 @@ Public Class tracuuxe
             Else
                 cbbtenchuxe.Text = ""
             End If
-
-            listxetracuu.Clear()
-            buildgv(listxetracuu)
-            Dim a = New List(Of xeDTO)
-            Dim result As Result
-            result = xBus.select_Bymachuxe(tbmachuxe.Text, a)
-            If (result.FlagResult = True) Then
-                For Each t In a
-                    Dim b = New hieuxeDTO()
-                    result = hxBus.select_ByMahieuxe(t.Mahieuxe, b)
-                    Dim c = New chuxeDTO()
-                    result = cxBus.select_ByMachuxe(tbmachuxe.Text, c)
-                    listxetracuu.Add(New tracuuxeDTO(t.Bienso, c.Tenchuxe, b.Tenhieuxe, c.Tienno, b.Mahieuxe, c.Machuxe))
-                    buildgv(listxetracuu)
-                Next
-            End If
-        Else
-            listxetracuu.Clear()
-            buildgv(listxetracuu)
         End If
     End Sub
 
     Private Sub tbmahieuxe_TextChanged(sender As Object, e As EventArgs) Handles tbmahieuxe.TextChanged
-        If (tbmahieuxe.Text <> 0) Then
+        If (tbmahieuxe.Text <> Nothing) Then
             Dim r = New hieuxeDTO()
             Dim result1 As Result
             result1 = hxBus.select_ByMahieuxe((tbmahieuxe.Text), r)
@@ -194,49 +151,15 @@ Public Class tracuuxe
 
                 cbbtenhieuxe.Text = ""
             End If
-            listxetracuu.Clear()
-            buildgv(listxetracuu)
-            Dim a = New List(Of xeDTO)
-            Dim result As Result
-            result = xBus.select_Bymahieuxe(tbmahieuxe.Text, a)
-            If (result.FlagResult = True) Then
-                For Each t In a
-                    Dim b = New hieuxeDTO()
-                    result = hxBus.select_ByMahieuxe(Convert.ToInt32(tbmahieuxe.Text), b)
-                    Dim c = New chuxeDTO()
-                    result = cxBus.select_ByMachuxe(t.Machuxe, c)
-                    listxetracuu.Add(New tracuuxeDTO(t.Bienso, c.Tenchuxe, b.Tenhieuxe, c.Tienno, b.Mahieuxe, c.Machuxe))
-                    buildgv(listxetracuu)
-                Next
-            End If
-        Else
-            listxetracuu.Clear()
-            buildgv(listxetracuu)
+
         End If
     End Sub
 
 
-    Private Function timkiem() As Boolean
-        If (tbmahieuxe.Text <> Nothing And tbmachuxe.Text <> Nothing) Then
-            listxetracuu.Clear()
-            buildgv(listxetracuu)
-            Dim a = New List(Of xeDTO)
-            Dim result As Result
-            result = xBus.select_Bymahieuxe(tbmahieuxe.Text, a)
-            If (result.FlagResult = True) Then
-                For Each t In a
-                    If (t.Machuxe = tbmachuxe.Text) Then
-                        Dim b = New hieuxeDTO()
-                        result = hxBus.select_ByMahieuxe(Convert.ToInt32(tbmahieuxe.Text), b)
-                        Dim c = New chuxeDTO()
-                        result = cxBus.select_ByMachuxe(t.Machuxe, c)
-                        listxetracuu.Add(New tracuuxeDTO(t.Bienso, c.Tenchuxe, b.Tenhieuxe, c.Tienno, b.Mahieuxe, c.Machuxe))
-                        buildgv(listxetracuu)
-                    End If
-                Next
-            End If
-        ElseIf (tbmahieuxe.Text <> Nothing And tbmachuxe.Text = Nothing) Then
-            listxetracuu.Clear()
+    Private Function timkiemchuxe_hieuxe() As Boolean
+
+        If (tbmahieuxe.Text <> Nothing) Then
+            'listxetracuu.Clear()
             buildgv(listxetracuu)
             Dim a = New List(Of xeDTO)
             Dim result As Result
@@ -251,8 +174,11 @@ Public Class tracuuxe
                     buildgv(listxetracuu)
                 Next
             End If
-        ElseIf (tbmahieuxe.Text = Nothing And tbmachuxe.Text <> Nothing) Then
-            listxetracuu.Clear()
+        End If
+
+
+        If (tbmachuxe.Text <> Nothing) Then
+            'listxetracuu.Clear()
             buildgv(listxetracuu)
             Dim a = New List(Of xeDTO)
             Dim result As Result
@@ -270,8 +196,52 @@ Public Class tracuuxe
         End If
         Return True
     End Function
+
+    Private Function timkiembienso() As Boolean
+        If (tbbienso.Text.Length >= 9) Then
+            Dim a = New xeDTO()
+            Dim result As Result
+            result = xBus.select_Bybienso(tbbienso.Text, a)
+            If (result.FlagResult = True) Then
+                Dim b = New hieuxeDTO()
+                result = hxBus.select_ByMahieuxe(a.Mahieuxe, b)
+                Dim c = New chuxeDTO()
+                result = cxBus.select_ByMachuxe(a.Machuxe, c)
+                listxetracuu.Add(New tracuuxeDTO(a.Bienso, c.Tenchuxe, b.Tenhieuxe, c.Tienno, b.Mahieuxe, c.Machuxe))
+                buildgv(listxetracuu)
+
+            End If
+
+
+        End If
+
+
+
+        If (tbbienso.Text.Length >= 2) Then
+            ' listxetracuu.Clear()
+            buildgv(listxetracuu)
+            Dim a = New List(Of xeDTO)
+            Dim result As Result
+            result = xBus.select_Bymavung(tbbienso.Text, a)
+            If (result.FlagResult = True) Then
+                For Each t In a
+                    Dim b = New hieuxeDTO()
+                    result = hxBus.select_ByMahieuxe(Convert.ToInt32(t.Mahieuxe), b)
+                    Dim c = New chuxeDTO()
+                    result = cxBus.select_ByMachuxe(t.Machuxe, c)
+                    listxetracuu.Add(New tracuuxeDTO(t.Bienso, c.Tenchuxe, b.Tenhieuxe, c.Tienno, b.Mahieuxe, c.Machuxe))
+                    buildgv(listxetracuu)
+                Next
+            End If
+        End If
+
+        Return True
+
+    End Function
     Private Sub bttim_Click(sender As Object, e As EventArgs) Handles bttim.Click
-        timkiem()
+        listxetracuu.Clear()
+        timkiemchuxe_hieuxe()
+        timkiembienso()
     End Sub
 
     Private Sub dgv_SelectionChanged(sender As Object, e As EventArgs) Handles dgv.SelectionChanged
@@ -327,7 +297,8 @@ Public Class tracuuxe
             Else
                 MessageBox.Show("Cập nhật xe thành công", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 tbbienso.Text = ""
-                timkiem()
+                timkiemchuxe_hieuxe()
+                timkiembienso()
             End If
         Else
             MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -344,7 +315,8 @@ Public Class tracuuxe
             Else
                 MessageBox.Show("Đã xóa", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 tbbienso.Text = ""
-                timkiem()
+                timkiembienso()
+                timkiemchuxe_hieuxe()
 
             End If
         End If
@@ -411,4 +383,6 @@ Public Class tracuuxe
             End If
         End If
     End Sub
+
+
 End Class

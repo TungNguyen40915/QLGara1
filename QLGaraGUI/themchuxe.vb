@@ -44,6 +44,15 @@ Public Class themchuxe
             chx.Dienthoai = Convert.ToInt32(tbdienthoai.Text)
             chx.Tienno = Convert.ToInt32(tbtienno.Text)
 
+
+            If (cxBus.CheckAndStandardizationName(chx) = False Or cxBus.isvalidAddress(chx) = False) Then
+                MessageBox.Show("Vui lòng kiểm tra lại thông tin chủ xe", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+
+            End If
+
+
+
             '2. Insert to DB
             Dim result As Result
             result = cxBus.insert(chx)
@@ -116,5 +125,15 @@ Public Class themchuxe
         If (MessageBox.Show("Thông tin chưa được lưu. Bạn thực sự muốn thoát?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) = DialogResult.OK) Then
             Me.Close()
         End If
+    End Sub
+
+    Private Sub tbdienthoai_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbdienthoai.KeyPress
+        Dim mK As Integer = Asc(e.KeyChar)
+        e.Handled = Not ((mK >= 48 And mK <= 57) Or mK = 8)
+    End Sub
+
+    Private Sub tbtienno_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbtienno.KeyPress
+        Dim mK As Integer = Asc(e.KeyChar)
+        e.Handled = Not ((mK >= 48 And mK <= 57) Or mK = 8)
     End Sub
 End Class

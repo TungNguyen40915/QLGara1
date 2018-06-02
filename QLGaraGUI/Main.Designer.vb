@@ -27,6 +27,7 @@ Partial Class Main
         Me.btlapphieuthu = New System.Windows.Forms.Button()
         Me.btlapbaocaotheothang = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'bttiepnhanxe
@@ -40,7 +41,7 @@ Partial Class Main
         '
         'bttracuuxe
         '
-        Me.bttracuuxe.Location = New System.Drawing.Point(87, 194)
+        Me.bttracuuxe.Location = New System.Drawing.Point(87, 253)
         Me.bttracuuxe.Name = "bttracuuxe"
         Me.bttracuuxe.Size = New System.Drawing.Size(135, 57)
         Me.bttracuuxe.TabIndex = 1
@@ -49,7 +50,7 @@ Partial Class Main
         '
         'btlapphieuthu
         '
-        Me.btlapphieuthu.Location = New System.Drawing.Point(87, 288)
+        Me.btlapphieuthu.Location = New System.Drawing.Point(87, 380)
         Me.btlapphieuthu.Name = "btlapphieuthu"
         Me.btlapphieuthu.Size = New System.Drawing.Size(135, 57)
         Me.btlapphieuthu.TabIndex = 2
@@ -58,7 +59,7 @@ Partial Class Main
         '
         'btlapbaocaotheothang
         '
-        Me.btlapbaocaotheothang.Location = New System.Drawing.Point(87, 379)
+        Me.btlapbaocaotheothang.Location = New System.Drawing.Point(87, 459)
         Me.btlapbaocaotheothang.Name = "btlapbaocaotheothang"
         Me.btlapbaocaotheothang.Size = New System.Drawing.Size(345, 57)
         Me.btlapbaocaotheothang.TabIndex = 3
@@ -67,24 +68,37 @@ Partial Class Main
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(87, 454)
+        Me.Button1.Location = New System.Drawing.Point(87, 174)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(345, 57)
         Me.Button1.TabIndex = 4
         Me.Button1.Text = "Lập Phiếu Sửa Chữa"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Button2
+        '
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button2.Location = New System.Drawing.Point(87, 536)
+        Me.Button2.Name = "Button2"
+        Me.Button2.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Button2.Size = New System.Drawing.Size(345, 57)
+        Me.Button2.TabIndex = 5
+        Me.Button2.Text = "Lập Báo Cáo Vật Tư"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1059, 538)
+        Me.ClientSize = New System.Drawing.Size(1059, 605)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btlapbaocaotheothang)
         Me.Controls.Add(Me.btlapphieuthu)
         Me.Controls.Add(Me.bttracuuxe)
         Me.Controls.Add(Me.bttiepnhanxe)
         Me.Name = "Main"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         Me.ResumeLayout(False)
 
@@ -95,4 +109,5 @@ Partial Class Main
     Friend WithEvents btlapphieuthu As Button
     Friend WithEvents btlapbaocaotheothang As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
 End Class

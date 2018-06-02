@@ -11,7 +11,6 @@ Public Class lapphieusuachua
     Private ndBus As noidungBus
     Private vtBus As vattuBus
     Private xBus As xeBus
-    Private listchitiet As List(Of chitietphieusuachuaDTO)
     Private listhienthi As List(Of suachuaDTO)
     Private listnoidung As List(Of noidungDTO)
     Private listvattu As List(Of vattuDTO)
@@ -24,7 +23,6 @@ Public Class lapphieusuachua
         ndBus = New noidungBus()
         vtBus = New vattuBus()
         ctpscBus = New chitietphieusuachuaBus()
-        listchitiet = New List(Of chitietphieusuachuaDTO)
         listhienthi = New List(Of suachuaDTO)
         listnoidung = New List(Of noidungDTO)
         listvattu = New List(Of vattuDTO)
@@ -105,8 +103,8 @@ Public Class lapphieusuachua
 
     Private Function buildgv(listchitiet As List(Of suachuaDTO)) As Boolean
 
-        dgv.DataSource = Nothing
-        dgv.Columns.Clear()
+        ' dgv.DataSource = Nothing
+        '  dgv.Columns.Clear()
 
         dgv.AutoGenerateColumns = False
         dgv.AllowUserToAddRows = False
@@ -304,4 +302,28 @@ Public Class lapphieusuachua
         Next
         Return True
     End Function
+
+    Private Sub dgv_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv.CellValueChanged
+        Dim currentRowIndex As Integer = dgv.CurrentCellAddress.Y 'current row selected
+
+        If (-1 < currentRowIndex And currentRowIndex < dgv.RowCount) Then
+            Try
+
+                Dim ct = CType(dgv.Rows(currentRowIndex).DataBoundItem, suachuaDTO)
+
+                listhienthi.Remove(ct)
+                ' buildgv(listhienthi)
+                tbtongtien.Text = (Convert.ToInt32(tbtongtien.Text) - ct.tongtien).ToString()
+                ct.tongtien = ct.soluong * ct.dongia + ct.tiencong
+                listhienthi.Add(ct)
+
+                buildgv(listhienthi)
+
+                tbtongtien.Text = (Convert.ToInt32(tbtongtien.Text) + ct.tongtien).ToString()
+
+            Catch ex As Exception
+                Console.WriteLine(ex.StackTrace)
+            End Try
+        End If
+    End Sub
 End Class

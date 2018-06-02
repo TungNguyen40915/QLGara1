@@ -78,6 +78,12 @@
     <Compile Include="baocaothang.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="baocaovattu.Designer.vb">
+      <DependentUpon>baocaovattu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="baocaovattu.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="lapphieusuachua.Designer.vb">
       <DependentUpon>lapphieusuachua.vb</DependentUpon>
     </Compile>
@@ -158,6 +164,9 @@
   <ItemGroup>
     <EmbeddedResource Include="baocaothang.resx">
       <DependentUpon>baocaothang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="baocaovattu.resx">
+      <DependentUpon>baocaovattu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="lapphieusuachua.resx">
       <DependentUpon>lapphieusuachua.vb</DependentUpon>

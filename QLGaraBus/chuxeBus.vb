@@ -44,4 +44,69 @@ Public Class chuxeBus
         '2. insert to DB
         Return cxDAL.update(cx)
     End Function
+
+    Public Function CheckAndStandardizationName(cx As chuxeDTO) As Boolean
+        If (cx.Tenchuxe.Length = 0) Then
+            Return False
+        End If
+
+        For Each item In cx.Tenchuxe
+
+            Dim a As Integer
+            Integer.TryParse(item, a)
+            If (a <> 0) Then
+                Return False
+            End If
+
+        Next
+
+
+        cx.Tenchuxe = cx.Tenchuxe.Trim()
+
+        While (cx.Tenchuxe.IndexOf("  ")) > -1
+            cx.Tenchuxe = cx.Tenchuxe.Replace("  ", " ")
+        End While
+        Dim mang() As String = Split(cx.Tenchuxe.ToString, " ")
+        Dim t As String
+        For i As Integer = 0 To UBound(mang)
+            t = t & UCase(mang(i).Substring(0, 1)) & LCase(mang(i).Substring(1, mang(i).Length - 1)) & " "
+
+        Next
+
+        cx.Tenchuxe = t
+
+        Return True
+
+
+    End Function
+
+    Public Function isvalidAddress(cx As chuxeDTO) As Boolean
+        If (cx.Diachi.Length < 1) Then
+            Return False
+        End If
+        Return True
+    End Function
+
+
+    Public Function isvalidNumberPhone(cx As chuxeDTO) As Boolean
+        If (cx.Dienthoai.ToString().Length < 9) Then
+            Return False
+        End If
+
+        Dim sdt As String
+        sdt = cx.Dienthoai.ToString()
+
+        For Each item In sdt
+
+            Dim a As Integer
+            Integer.TryParse(item, a)
+            If (a = 0) Then
+                Return False
+            End If
+
+        Next
+
+
+        Return True
+    End Function
 End Class

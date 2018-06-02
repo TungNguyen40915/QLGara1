@@ -132,6 +132,12 @@ Public Class tiepnhanxe
                     x.Bienso = tbbiensoxe.Text
                     x.Ngaytiepnhan = dtngaytiepnhan.Value
 
+                    Dim b = String.Empty
+                    For Each item In x.Bienso
+                        b = b + UCase(item)
+                    Next
+
+                    x.Bienso = b
 
                     '2. Insert to DB
                     Dim result As Result
@@ -185,22 +191,27 @@ Public Class tiepnhanxe
     End Sub
 
     Private Sub tbbiensoxe_TextChanged(sender As Object, e As EventArgs) Handles tbbiensoxe.TextChanged
-        Dim a As xeDTO
-        a = New xeDTO()
-        If (loadXeByBienso(a) = True) Then
-            Dim b As hieuxeDTO
-            b = New hieuxeDTO()
-            Dim c As chuxeDTO
-            c = New chuxeDTO()
-            loadChuXeByMachuxe(a.Machuxe, c)
-            tbdiachi.Text = c.Diachi
-            tbdienthoai.Text = c.Dienthoai.ToString()
-            tbmachuxe.Text = c.Machuxe
-            tbtenchuxe.Text = c.Tenchuxe
+        If (tbbiensoxe.Text.Length = 0) Then
+            btluu.Enabled = False
+        Else
+            Dim a As xeDTO
+            a = New xeDTO()
+            If (loadXeByBienso(a) = True) Then
+                Dim b As hieuxeDTO
+                b = New hieuxeDTO()
+                Dim c As chuxeDTO
+                c = New chuxeDTO()
+                loadChuXeByMachuxe(a.Machuxe, c)
+                tbdiachi.Text = c.Diachi
+                tbdienthoai.Text = c.Dienthoai.ToString()
+                tbmachuxe.Text = c.Machuxe
+                tbtenchuxe.Text = c.Tenchuxe
 
 
-            loadHieuXeByMahieuxe(a.Mahieuxe.ToString(), b)
-            tbhieuxe.Text = b.Tenhieuxe
+                loadHieuXeByMahieuxe(a.Mahieuxe.ToString(), b)
+                tbhieuxe.Text = b.Tenhieuxe
+            End If
         End If
+
     End Sub
 End Class

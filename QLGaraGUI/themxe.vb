@@ -71,19 +71,24 @@ Public Class themxe
             x.Machuxe = tbmachuxe.Text
             x.Mahieuxe = Convert.ToInt32(tbmahieuxe.Text)
 
+            If (xBus.CheckAndStandardization(x) = False) Then
+                Return
+            End If
+
+
             '2. Insert to DB
             Dim result As Result
-            result = xBus.insert(x)
-            If (result.FlagResult = True) Then
-                MessageBox.Show("Thêm Xe thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                tbbienso.Text = String.Empty
+                result = xBus.insert(x)
+                If (result.FlagResult = True) Then
+                    MessageBox.Show("Thêm Xe thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    tbbienso.Text = String.Empty
 
+                Else
+                    MessageBox.Show("Thêm xe không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    System.Console.WriteLine(result.SystemMessage)
+                End If
             Else
-                MessageBox.Show("Thêm xe không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                System.Console.WriteLine(result.SystemMessage)
-            End If
-        Else
-            MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 

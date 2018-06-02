@@ -5,8 +5,14 @@ Imports Utility
 Public Class baocaothang
 
     Private bcBus As baocaothangBus
+    Private pscBus As phieusuachuaBus
+    Private list As List(Of baocao1DTO)
+
     Private Sub baocaothang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         bcBus = New baocaothangBus()
+        pscBus = New phieusuachuaBus()
+        list = New List(Of baocao1DTO)
+
 
         dtpngay.Value = Now
         tbdoanhthu.Text = "0"
@@ -32,42 +38,42 @@ Public Class baocaothang
 
 
 
-    Private Function builddgvchitiet(list As List(Of baocaothangDTO))
+    Private Function builddgv(list As List(Of baocao1DTO))
         dgvchitiet.DataSource = Nothing
         dgvchitiet.Columns.Clear()
 
-        dgvchitiet.AutoGenerateColumns = True
-        dgvchitiet.AllowUserToAddRows = True
+        dgvchitiet.AutoGenerateColumns = False
+        dgvchitiet.AllowUserToAddRows = False
         dgvchitiet.Enabled = True
         dgvchitiet.DataSource = list
 
-        Dim clhieuxe = New DataGridViewTextBoxColumn()
-        clhieuxe.Name = "bienso"
-        clhieuxe.HeaderText = "Biển Số"
-        clhieuxe.DataPropertyName = "biensoxe"
-        dgvchitiet.Columns.Add(clhieuxe)
-        clhieuxe.ReadOnly = True
+        Dim cltenhieuxe = New DataGridViewTextBoxColumn()
+        cltenhieuxe.Name = "tenhieuxe"
+        cltenhieuxe.HeaderText = " Hiệu Xe"
+        cltenhieuxe.DataPropertyName = "tenhieuxe"
+        dgvchitiet.Columns.Add(cltenhieuxe)
+        cltenhieuxe.ReadOnly = True
 
-        Dim clmachuxe = New DataGridViewTextBoxColumn()
-        clmachuxe.Name = "machuxe"
-        clmachuxe.HeaderText = "Chủ Xe"
-        clmachuxe.DataPropertyName = "tenchuxe"
-        dgvchitiet.Columns.Add(clmachuxe)
-        clmachuxe.ReadOnly = True
+        Dim clsoluotsua = New DataGridViewTextBoxColumn()
+        clsoluotsua.Name = "soluotsua"
+        clsoluotsua.HeaderText = "Số Lượt Sửa"
+        clsoluotsua.DataPropertyName = "soluotsua"
+        dgvchitiet.Columns.Add(clsoluotsua)
+        clsoluotsua.ReadOnly = True
 
-        Dim clmahieuxe = New DataGridViewTextBoxColumn()
-        clmahieuxe.Name = "tenhieuxe"
-        clmahieuxe.HeaderText = "Hiệu Xe"
-        clmahieuxe.DataPropertyName = "tenhieuxe"
-        dgvchitiet.Columns.Add(clmahieuxe)
-        clmahieuxe.ReadOnly = True
+        Dim clthanhtien = New DataGridViewTextBoxColumn()
+        clthanhtien.Name = "thanhtien"
+        clthanhtien.HeaderText = "Tổng tiền"
+        clthanhtien.DataPropertyName = "thanhtien"
+        dgvchitiet.Columns.Add(clthanhtien)
+        clthanhtien.ReadOnly = True
 
-        Dim cltienno = New DataGridViewTextBoxColumn()
-        cltienno.Name = "tienno"
-        cltienno.HeaderText = "Tiền nợ"
-        cltienno.DataPropertyName = "tienno"
-        dgvchitiet.Columns.Add(cltienno)
-        cltienno.ReadOnly = True
+        Dim cltile = New DataGridViewTextBoxColumn()
+        cltile.Name = "tile"
+        cltile.HeaderText = "Tỉ Lệ"
+        cltile.DataPropertyName = "tile"
+        dgvchitiet.Columns.Add(cltile)
+        cltile.ReadOnly = True
 
         Dim myCurrencyManager As CurrencyManager = Me.BindingContext(dgvchitiet.DataSource)
         myCurrencyManager.Refresh()
@@ -79,6 +85,31 @@ Public Class baocaothang
     Private Sub dtpngay_ValueChanged(sender As Object, e As EventArgs) Handles dtpngay.ValueChanged
         loadID()
     End Sub
+
+    Private Sub btload_Click(sender As Object, e As EventArgs) Handles btload.Click
+        Dim result As Result
+        Dim tongluot As Integer
+        tongluot = 0
+        result = pscBus.selectPhieuSC_bydate(dtpngay.Value, tongluot)
+        If (result.FlagResult = True) Then
+            result = pscBus.selectPhieuSC_BC1(dtpngay.Value, tongluot, list)
+            If (result.FlagResult = False) Then
+                MessageBox.Show("Đã có lỗi xảy ra1", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                builddgv(list)
+                Dim tongtrigia As Integer
+                tongtrigia = 0
+                For Each item In list
+                    tongtrigia += item.thanhtien
+
+                Next
+                tbdoanhthu.Text = tongtrigia.ToString()
+            End If
+        Else
+            MessageBox.Show("Đã có lỗi xảy ra2", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+
 
 
 

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class baocaothang
+Partial Class baocaovattu
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,80 +22,65 @@ Partial Class baocaothang
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.btluu = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btload = New System.Windows.Forms.Button()
         Me.dgvchitiet = New System.Windows.Forms.DataGridView()
-        Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.tbdoanhthu = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.dtpngay = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.tbmabaocao = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btluu = New System.Windows.Forms.Button()
-        Me.btload = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvchitiet, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel5.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'btluu
+        '
+        Me.btluu.Location = New System.Drawing.Point(256, 585)
+        Me.btluu.Name = "btluu"
+        Me.btluu.Size = New System.Drawing.Size(196, 59)
+        Me.btluu.TabIndex = 3
+        Me.btluu.Text = "Lưu"
+        Me.btluu.UseVisualStyleBackColor = True
         '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.btload)
         Me.Panel1.Controls.Add(Me.dgvchitiet)
-        Me.Panel1.Controls.Add(Me.Panel5)
         Me.Panel1.Controls.Add(Me.Panel3)
         Me.Panel1.Controls.Add(Me.Panel2)
-        Me.Panel1.Location = New System.Drawing.Point(13, 13)
+        Me.Panel1.Location = New System.Drawing.Point(21, 12)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(730, 592)
-        Me.Panel1.TabIndex = 0
+        Me.Panel1.Size = New System.Drawing.Size(730, 567)
+        Me.Panel1.TabIndex = 2
+        '
+        'btload
+        '
+        Me.btload.Location = New System.Drawing.Point(253, 173)
+        Me.btload.Name = "btload"
+        Me.btload.Size = New System.Drawing.Size(196, 59)
+        Me.btload.TabIndex = 2
+        Me.btload.Text = "Load"
+        Me.btload.UseVisualStyleBackColor = True
         '
         'dgvchitiet
         '
         Me.dgvchitiet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvchitiet.Location = New System.Drawing.Point(27, 323)
+        Me.dgvchitiet.Location = New System.Drawing.Point(20, 249)
         Me.dgvchitiet.Name = "dgvchitiet"
         Me.dgvchitiet.RowTemplate.Height = 28
-        Me.dgvchitiet.Size = New System.Drawing.Size(685, 246)
+        Me.dgvchitiet.Size = New System.Drawing.Size(685, 308)
         Me.dgvchitiet.TabIndex = 4
-        '
-        'Panel5
-        '
-        Me.Panel5.Controls.Add(Me.tbdoanhthu)
-        Me.Panel5.Controls.Add(Me.Label4)
-        Me.Panel5.Location = New System.Drawing.Point(125, 159)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(543, 63)
-        Me.Panel5.TabIndex = 2
-        '
-        'tbdoanhthu
-        '
-        Me.tbdoanhthu.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbdoanhthu.Location = New System.Drawing.Point(264, 25)
-        Me.tbdoanhthu.Name = "tbdoanhthu"
-        Me.tbdoanhthu.ReadOnly = True
-        Me.tbdoanhthu.Size = New System.Drawing.Size(260, 35)
-        Me.tbdoanhthu.TabIndex = 1
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(17, 14)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(227, 32)
-        Me.Label4.TabIndex = 0
-        Me.Label4.Text = "Tổng Doanh Thu"
         '
         'Panel3
         '
         Me.Panel3.Controls.Add(Me.dtpngay)
         Me.Panel3.Controls.Add(Me.Label2)
-        Me.Panel3.Location = New System.Drawing.Point(125, 90)
+        Me.Panel3.Location = New System.Drawing.Point(121, 104)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(499, 63)
         Me.Panel3.TabIndex = 2
@@ -124,7 +109,7 @@ Partial Class baocaothang
         '
         Me.Panel2.Controls.Add(Me.tbmabaocao)
         Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Location = New System.Drawing.Point(125, 21)
+        Me.Panel2.Location = New System.Drawing.Point(121, 35)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(502, 63)
         Me.Panel2.TabIndex = 0
@@ -148,41 +133,21 @@ Partial Class baocaothang
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Mã Báo Cáo"
         '
-        'btluu
-        '
-        Me.btluu.Location = New System.Drawing.Point(242, 611)
-        Me.btluu.Name = "btluu"
-        Me.btluu.Size = New System.Drawing.Size(196, 59)
-        Me.btluu.TabIndex = 1
-        Me.btluu.Text = "Lưu"
-        Me.btluu.UseVisualStyleBackColor = True
-        '
-        'btload
-        '
-        Me.btload.Location = New System.Drawing.Point(261, 246)
-        Me.btload.Name = "btload"
-        Me.btload.Size = New System.Drawing.Size(196, 59)
-        Me.btload.TabIndex = 2
-        Me.btload.Text = "Load"
-        Me.btload.UseVisualStyleBackColor = True
-        '
-        'baocaothang
+        'baocaovattu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(755, 682)
+        Me.ClientSize = New System.Drawing.Size(799, 665)
         Me.Controls.Add(Me.btluu)
         Me.Controls.Add(Me.Panel1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "baocaothang"
+        Me.Name = "baocaovattu"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Báo Cáo Tháng"
+        Me.Text = "Báo Cáo Vật Tư"
         Me.Panel1.ResumeLayout(False)
         CType(Me.dgvchitiet, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel5.ResumeLayout(False)
-        Me.Panel5.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.Panel2.ResumeLayout(False)
@@ -191,17 +156,14 @@ Partial Class baocaothang
 
     End Sub
 
+    Friend WithEvents btluu As Button
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents btload As Button
     Friend WithEvents dgvchitiet As DataGridView
-    Friend WithEvents Panel5 As Panel
-    Friend WithEvents tbdoanhthu As TextBox
-    Friend WithEvents Label4 As Label
     Friend WithEvents Panel3 As Panel
+    Friend WithEvents dtpngay As DateTimePicker
     Friend WithEvents Label2 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents tbmabaocao As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents btluu As Button
-    Friend WithEvents dtpngay As DateTimePicker
-    Friend WithEvents btload As Button
 End Class

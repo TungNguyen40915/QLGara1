@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="baocaothangBus.vb" />
+    <Compile Include="baocaovattuBus.vb" />
     <Compile Include="chitietphieusuachuaBus.vb" />
     <Compile Include="chuxeBus.vb" />
     <Compile Include="hieuxeBus.vb" />

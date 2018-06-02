@@ -23,6 +23,9 @@ Partial Class themchuxe
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.tbdienthoai = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.tbtienno = New System.Windows.Forms.TextBox()
         Me.labeltienno = New System.Windows.Forms.Label()
@@ -38,15 +41,13 @@ Partial Class themchuxe
         Me.btluu = New System.Windows.Forms.Button()
         Me.btnhaplai = New System.Windows.Forms.Button()
         Me.btthoat = New System.Windows.Forms.Button()
-        Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.tbdienthoai = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
+        Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        Me.Panel6.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -61,8 +62,36 @@ Partial Class themchuxe
         Me.Panel1.Size = New System.Drawing.Size(795, 386)
         Me.Panel1.TabIndex = 0
         '
+        'Panel6
+        '
+        Me.Panel6.Controls.Add(Me.tbdienthoai)
+        Me.Panel6.Controls.Add(Me.Label4)
+        Me.Panel6.Location = New System.Drawing.Point(9, 227)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(766, 61)
+        Me.Panel6.TabIndex = 4
+        '
+        'tbdienthoai
+        '
+        Me.tbdienthoai.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbdienthoai.Location = New System.Drawing.Point(230, 6)
+        Me.tbdienthoai.Name = "tbdienthoai"
+        Me.tbdienthoai.Size = New System.Drawing.Size(519, 44)
+        Me.tbdienthoai.TabIndex = 1
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(26, 13)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(172, 37)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "Điện Thoại"
+        '
         'Panel5
         '
+        Me.Panel5.Controls.Add(Me.Label5)
         Me.Panel5.Controls.Add(Me.tbtienno)
         Me.Panel5.Controls.Add(Me.labeltienno)
         Me.Panel5.Location = New System.Drawing.Point(9, 305)
@@ -75,7 +104,7 @@ Partial Class themchuxe
         Me.tbtienno.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbtienno.Location = New System.Drawing.Point(230, 6)
         Me.tbtienno.Name = "tbtienno"
-        Me.tbtienno.Size = New System.Drawing.Size(519, 44)
+        Me.tbtienno.Size = New System.Drawing.Size(396, 44)
         Me.tbtienno.TabIndex = 1
         '
         'labeltienno
@@ -200,32 +229,15 @@ Partial Class themchuxe
         Me.btthoat.Text = "Thoát"
         Me.btthoat.UseVisualStyleBackColor = True
         '
-        'Panel6
+        'Label5
         '
-        Me.Panel6.Controls.Add(Me.tbdienthoai)
-        Me.Panel6.Controls.Add(Me.Label4)
-        Me.Panel6.Location = New System.Drawing.Point(9, 227)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(766, 61)
-        Me.Panel6.TabIndex = 4
-        '
-        'tbdienthoai
-        '
-        Me.tbdienthoai.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbdienthoai.Location = New System.Drawing.Point(230, 6)
-        Me.tbdienthoai.Name = "tbdienthoai"
-        Me.tbdienthoai.Size = New System.Drawing.Size(519, 44)
-        Me.tbdienthoai.TabIndex = 1
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(26, 13)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(172, 37)
-        Me.Label4.TabIndex = 0
-        Me.Label4.Text = "Điện Thoại"
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(632, 9)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(86, 37)
+        Me.Label5.TabIndex = 2
+        Me.Label5.Text = "VNĐ"
         '
         'themchuxe
         '
@@ -243,6 +255,8 @@ Partial Class themchuxe
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Thêm chủ xe"
         Me.Panel1.ResumeLayout(False)
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel6.PerformLayout()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.Panel4.ResumeLayout(False)
@@ -251,8 +265,6 @@ Partial Class themchuxe
         Me.Panel3.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        Me.Panel6.ResumeLayout(False)
-        Me.Panel6.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -276,4 +288,5 @@ Partial Class themchuxe
     Friend WithEvents Panel6 As Panel
     Friend WithEvents tbdienthoai As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
 End Class

@@ -129,4 +129,104 @@ Public Class phieusuachuaDAL
 
 
     End Function
+
+
+    Public Function selectPhieuSC_BC1(dt As DateTime, tongluot As Integer, ByRef list As List(Of baocao1DTO)) As Result
+        Dim query As String = String.Empty
+
+
+        query &= " select [tblHieuXe].[mahieuxe], [tblHieuXe].[tenhieuxe], count(*) as [tongsoluot],  sum([tblPhieuSuaChua].[tongtien]) as [tonggiatri]"
+        query &= " from "
+        query &= " 	[tblXe] "
+        query &= " 	,[tblHieuXe] "
+        query &= " 	,[tblPhieuSuaChua] "
+        query &= " where "
+        query &= " 	Year([tblPhieuSuaChua].[ngaysuachua]) = @nam "
+        query &= " 	And  Month([tblPhieuSuaChua].[ngaysuachua]) = @thang "
+        query &= " 	and  [tblHieuXe].[mahieuxe] = [tblXe].[mahieuxe]   "
+        query &= " 	and  [tblXe].[bienso]  = [tblPhieuSuaChua].[biensoxe] "
+        query &= " 	  Group by [tblHieuXe].[mahieuxe] "
+        query &= " ,[tblHieuXe].[tenhieuxe] "
+
+
+
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@thang", dt.Month())
+                    .Parameters.AddWithValue("@nam", dt.Year())
+                End With
+                Try
+                    conn.Open()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader()
+                    If reader.HasRows = True Then
+                        list.Clear()
+                        While reader.Read()
+                            Dim bc = New baocao1DTO()
+                            bc.mahieuxe = reader("mahieuxe")
+                            bc.tenhieuxe = reader("tenhieuxe")
+                            bc.soluotsua = reader("tongsoluot")
+                            bc.thanhtien = reader("tonggiatri")
+
+                            bc.tile = bc.soluotsua / tongluot
+                            'list.Add(New baocao1DTO(reader("mahieuxe"), reader("tenhieuxe"), reader("tongsoluot"), reader("tonggiatri"), reader("tongsoluot") / tongluot))
+                            list.Add(bc)
+                        End While
+                    End If
+                Catch ex As Exception
+                    Console.WriteLine(ex.StackTrace)
+                    conn.Close()
+                    ' them that bai!!!
+                    Return New Result(False, "Lấy danh sách phiếu không thành công", ex.StackTrace)
+                End Try
+            End Using
+        End Using
+        Return New Result(True) ' thanh cong
+    End Function
+
+    Public Function selectPhieuSC_bydate(dt As DateTime, ByRef tongluot As Integer) As Result
+        Dim query As String = String.Empty
+
+        query &= " select count(*) as [tongluotsuachua]"
+        query &= " from "
+        query &= " 	[tblPhieuSuaChua] "
+        query &= " where "
+        query &= " 	Year([tblPhieuSuaChua].[ngaysuachua]) = @nam "
+        query &= " 	And  Month([tblPhieuSuaChua].[ngaysuachua]) = @thang "
+
+
+
+
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@thang", dt.Month)
+                    .Parameters.AddWithValue("@nam", dt.Year)
+                End With
+                Try
+                    conn.Open()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader()
+                    If reader.HasRows = True Then
+                        While reader.Read()
+                            tongluot = reader("tongluotsuachua")
+                        End While
+                    End If
+                Catch ex As Exception
+                    Console.WriteLine(ex.StackTrace)
+                    conn.Close()
+                    ' them that bai!!!
+                    Return New Result(False)
+                End Try
+            End Using
+        End Using
+        Return New Result(True) ' thanh cong
+    End Function
 End Class

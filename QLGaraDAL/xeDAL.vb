@@ -86,6 +86,48 @@ Public Class xeDAL
     End Function
 
 
+
+
+
+    Public Function select_Bymavung(id As String, ByRef listxe As List(Of xeDTO)) As Result
+
+        Dim query As String = String.Empty
+        query &= " SELECT [bienso], [machuxe],[mahieuxe] "
+        query &= " FROM [tblXe] "
+        query &= " WHERE "
+        query &= "     SUBSTRING([bienso],1,2) = @bienso"
+
+
+
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@bienso", id.Substring(0, 2))
+                End With
+                Try
+                    conn.Open()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader()
+                    If reader.HasRows = True Then
+                        listxe.Clear()
+                        While reader.Read()
+                            listxe.Add(New xeDTO(reader("bienso"), reader("machuxe"), reader("mahieuxe")))
+                        End While
+                    End If
+
+                Catch ex As Exception
+                    conn.Close()
+                    System.Console.WriteLine(ex.StackTrace)
+                    Return New Result(False)
+                End Try
+            End Using
+        End Using
+        Return New Result(True) ' thanh cong
+    End Function
+
     Public Function select_Bymachuxe(id As String, ByRef listxe As List(Of xeDTO)) As Result
 
         Dim query As String = String.Empty

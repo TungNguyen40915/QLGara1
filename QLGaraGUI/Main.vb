@@ -30,4 +30,9 @@ Public Class Main
         Dim newf = New lapphieusuachua()
         newf.ShowDialog(Me)
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim newf = New baocaovattu()
+        newf.ShowDialog(Me)
+    End Sub
 End Class
