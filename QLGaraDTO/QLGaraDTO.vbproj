@@ -68,6 +68,7 @@
     <Compile Include="baocaothangDTO.vb" />
     <Compile Include="baocaovattuDTO.vb" />
     <Compile Include="chitietbaocaothangDTO.vb" />
+    <Compile Include="chitietbaocaovattuDTO.vb" />
     <Compile Include="chitietphieusuachuaDTO.vb" />
     <Compile Include="chuxeDTO.vb" />
     <Compile Include="hieuxeDTO.vb" />

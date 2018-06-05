@@ -47,7 +47,6 @@ Public Class baocaothangDAL
 
 
     Public Function buildMBC(thang As Integer, nam As Integer, ByRef nextmabaocao As String) As Result
-
         nextmabaocao = "BC"
         Dim query As String = String.Empty
         query &= "SELECT TOP 1 [mabaocao] "
@@ -92,21 +91,12 @@ Public Class baocaothangDAL
                     Else
                         Dim y = nam.ToString().Substring(2, 2)
                         Dim m = thang.ToString()
-
-
                         If (m.Length = 1) Then
                             nextmabaocao = nextmabaocao + y + "0" + m + "01"
                         Else
                             nextmabaocao = nextmabaocao + y + m + "01"
                         End If
-
-
-
-
                     End If
-
-
-
                 Catch ex As Exception
                     conn.Close() ' that bai!!!
                     System.Console.WriteLine(ex.StackTrace)
@@ -115,13 +105,46 @@ Public Class baocaothangDAL
             End Using
         End Using
         Return New Result(True) ' thanh cong
-
-
-
-
-
-
     End Function
 
+    Public Function select_Bymabaocao(id As String, ByRef a As Integer) As Result
+
+        Dim query As String = String.Empty
+        query &= " SELECT [mabaocao], [thang],[nam],[tongdoanhthu] "
+        query &= " FROM [tblBaoCaoThang] "
+        query &= " WHERE "
+        query &= "     [mabaocao] = @mabaocao"
+
+
+
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@mabaocao", id)
+                End With
+                Try
+                    conn.Open()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader()
+                    If reader.HasRows = True Then
+                        a = 1 'tim thay
+
+                    Else
+                        a = 0 '0 tim thay
+                        Return New Result(False)
+                    End If
+
+                Catch ex As Exception
+                    conn.Close()
+                    System.Console.WriteLine(ex.StackTrace)
+                    Return New Result(False, "Lấy xe không thành công", ex.StackTrace)
+                End Try
+            End Using
+        End Using
+        Return New Result(True) ' thanh cong
+    End Function
 
 End Class

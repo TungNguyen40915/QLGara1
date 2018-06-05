@@ -5,11 +5,14 @@ Imports Utility
 Public Class baocaothang
 
     Private bcBus As baocaothangBus
+    Private ctbcBus As chitietbaocaothangBus
     Private pscBus As phieusuachuaBus
     Private list As List(Of baocao1DTO)
 
+
     Private Sub baocaothang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         bcBus = New baocaothangBus()
+        ctbcBus = New chitietbaocaothangBus()
         pscBus = New phieusuachuaBus()
         list = New List(Of baocao1DTO)
 
@@ -87,30 +90,70 @@ Public Class baocaothang
     End Sub
 
     Private Sub btload_Click(sender As Object, e As EventArgs) Handles btload.Click
-        Dim result As Result
-        Dim tongluot As Integer
-        tongluot = 0
-        result = pscBus.selectPhieuSC_bydate(dtpngay.Value, tongluot)
-        If (result.FlagResult = True) Then
-            result = pscBus.selectPhieuSC_BC1(dtpngay.Value, tongluot, list)
-            If (result.FlagResult = False) Then
-                MessageBox.Show("Đã có lỗi xảy ra1", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Else
-                builddgv(list)
-                Dim tongtrigia As Integer
-                tongtrigia = 0
-                For Each item In list
-                    tongtrigia += item.thanhtien
 
-                Next
-                tbdoanhthu.Text = tongtrigia.ToString()
-            End If
+        Dim a As Integer
+        Dim result As Result
+        result = bcBus.select_bymabaocao(tbmabaocao.Text, a)
+        If (a = 1) Then
+
         Else
-            MessageBox.Show("Đã có lỗi xảy ra2", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+            '   Dim result As Result
+            Dim tongluot As Integer
+            tongluot = 0
+            result = pscBus.selectPhieuSC_bydate(dtpngay.Value, tongluot)
+            If (result.FlagResult = True) Then
+                result = pscBus.selectPhieuSC_BC1(dtpngay.Value, tongluot, list)
+                If (result.FlagResult = False) Then
+                    MessageBox.Show("Đã có lỗi xảy ra", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
+                    builddgv(list)
+                    Dim tongtrigia As Integer
+                    tongtrigia = 0
+                    For Each item In list
+                        tongtrigia += item.thanhtien
+
+                    Next
+                    tbdoanhthu.Text = tongtrigia.ToString()
+                End If
+            Else
+                MessageBox.Show("Đã có lỗi xảy ra", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         End If
     End Sub
 
+    Private Sub btluu_Click(sender As Object, e As EventArgs) Handles btluu.Click
+        Dim ct = New chitietbaocaothangDTO()
+        Dim bc = New baocaothangDTO()
 
 
+        bc.mabaocao = tbmabaocao.Text
+        bc.thang = dtpngay.Value.Month
+        bc.nam = dtpngay.Value.Year
+        bc.tongdoanhthu = Convert.ToInt32(tbdoanhthu.Text)
 
+        Dim result As Result
+        result = bcBus.insert(bc)
+        If (result.FlagResult = False) Then
+            MessageBox.Show("Đã Xảy ra Lỗi", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+            Me.Close()
+        Else
+            For Each item In list
+                ct.mabaocao = tbmabaocao.Text
+                ct.mahieuxe = item.mahieuxe
+                ct.soluot = item.soluotsua
+                ct.thanhtien = item.thanhtien
+                ct.tyle = item.tile
+                result = ctbcBus.insert(ct)
+                If (result.FlagResult = False) Then
+                    MessageBox.Show("Đã xảy ra lỗi", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Return
+                End If
+            Next
+            MessageBox.Show("Đã Lưu Thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+
+
+    End Sub
 End Class

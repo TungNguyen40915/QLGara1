@@ -103,8 +103,8 @@ Public Class lapphieusuachua
 
     Private Function buildgv(listchitiet As List(Of suachuaDTO)) As Boolean
 
-        ' dgv.DataSource = Nothing
-        '  dgv.Columns.Clear()
+        dgv.DataSource = Nothing
+        dgv.Columns.Clear()
 
         dgv.AutoGenerateColumns = False
         dgv.AllowUserToAddRows = False

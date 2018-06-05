@@ -197,27 +197,30 @@ Public Class vattuDAL
     End Function
 
 
-    Public Function selectvattu_baocao(list As List(Of baocao2DTO)) As Result
+    Public Function selectvattu_baocao(dt As DateTime, list As List(Of baocao2DTO)) As Result
+
+
+
         Dim query As String = String.Empty
-        query &= " select [phatsinh].[mavattu], [phatsinh].[tenvattu],[phatsinh].[tongsoluong],[phatsinh].[soluong],[tondau].[toncuoi] "
+        query &= " select [phatsinh].[mavattu], [phatsinh].[tenvattu],  [phatsinh].[tongsoluong],  [phatsinh].[soluong],   [tondau].[toncuoi] "
         query &= " from "
         query &= " ( "
-        query &= " select [suachua].[mavattu],[suachua].[tenvattu],[suachua].[tongsoluong],[nhapvao].[soluong] "
+        query &= " select [suachua].[mavattu],  [suachua].[tenvattu],   [suachua].[tongsoluong],   [nhapvao].[soluong] "
         query &= " from  "
         query &= " 	( "
-        query &= " 	select [tblVatTu].[mavattu],[tblVatTu].[tenvattu], [info].[tongsoluong] "
+        query &= " 	select [tblVatTu].[mavattu],   [tblVatTu].[tenvattu],   [info].[tongsoluong] "
         query &= " from  "
         query &= " 	[tblVatTu] "
         query &= " left join  "
         query &= " 	( "
-        query &= " 	select [mavattu],sum([soluong]) as [tongsoluong] "
+        query &= " 	select [mavattu],   sum([soluong]) as [tongsoluong] "
         query &= " from  "
         query &= " 	[tblCTPSC] "
         query &= " 	,[tblPhieuSuaChua] "
         query &= " where "
-        query &= " 	[tblCTPSC].[maphieu]=[tblPhieuSuaChua].[maphieu] "
-        query &= " 	 and month([ngaysuachua])= @thang "
-        query &= " 	and year([ngaysuachua])=@nam "
+        query &= " 	[tblCTPSC].[maphieu] = [tblPhieuSuaChua].[maphieu] "
+        query &= " 	 and month ([ngaysuachua]) = @thang "
+        query &= " 	and year ([ngaysuachua]) = @nam "
         query &= "  group by "
         query &= " [mavattu] "
         query &= "   ) as [info] "
@@ -225,48 +228,52 @@ Public Class vattuDAL
         query &= " ) as [suachua] "
         query &= " left join  "
         query &= " 	( "
-        query &= " 	select [tblVatTu].[mavattu],[tblVatTu].[tenvattu] ,[a].[soluong]  "
+        query &= " 	select [tblVatTu].[mavattu], [tblVatTu].[tenvattu] ,  [a].[soluong]  "
         query &= " from  "
         query &= " 	[tblVatTu] "
         query &= " left join  "
         query &= " 	( "
-        query &= " 	select [mavattu],sum([soluong]) as [soluong]  "
+        query &= " 	select [mavattu],   sum([soluong]) as [soluong]  "
         query &= " from  "
         query &= " 	[tblNhapVatTu] "
-        query &= " 	,[tblChiTietNhapVatTu] "
+        query &= " 	,  [tblChiTietNhapVatTu] "
         query &= " where "
-        query &= " 	[tblNhapVatTu].[maphieunhap]=[tblChiTietNhapVatTu].[maphieunhap] "
-        query &= " 	and month(tblNhapVatTu.ngaynhap)=@thang "
-        query &= " 	and year(tblNhapVatTu.ngaynhap)=@nam "
+        query &= " 	[tblNhapVatTu].[maphieunhap] = [tblChiTietNhapVatTu].[maphieunhap] "
+        query &= " 	and month ([tblNhapVatTu].[ngaynhap]) = @thang "
+        query &= " 	and year ([tblNhapVatTu].[ngaynhap]) = @nam "
         query &= "  group by "
         query &= " [mavattu] "
         query &= " ) as [a] "
-        query &= " on [tblVatTu].[mavattu]=[a].[mavattu]  "
+        query &= " on [tblVatTu].[mavattu] = [a].[mavattu]  "
         query &= "  ) as [nhapvao] "
-
-
-
-
-
-
-
-
-
-
-
-        query &= " 	and  [tblChiTietBaoCaoVatTu].[mavattu] = [tblVatTu].[mavattu]   "
-        query &= " ) as [info] "
+        query &= " on [suachua].[mavattu] = [nhapvao].[mavattu]  "
+        query &= "  ) as [phatsinh] "
         query &= " left join  "
-        query &= " ( "
-        query &= " 	select * "
-        query &= " 	from [tbldiem] "
-        query &= " 	where  "
-        query &= " 	[tbldiem].[mahocsinh] =  N'16000001' "
-        query &= " ) as [filterdiem] "
-        query &= " on [info].[mahinhthucdanhgia]=  [filterdiem].[mahinhthucdanhgia] "
+        query &= " 	( "
+        query &= " 	select [tblVatTu].[mavattu], [tblVatTu].[tenvattu], [toncuoi]  "
+        query &= " from  "
+        query &= " 	[tblVatTu] "
+        query &= " left join  "
+        query &= " 	( "
+        query &= " 	select [mavattu], [toncuoi] "
+        query &= " from  "
+        query &= " 	[tblChiTietBaoCaoVatTu] "
+        query &= " where "
+        query &= "  [tblChiTietBaoCaoVatTu].[mabaocao] =  "
+        query &= " 	( "
+        query &= " 	select TOP 1 [mabaocao]  "
+        query &= " from  "
+        query &= " 	[tblBaoCaoVatTu] "
+        query &= " where "
+        query &= " 	[thang] =  @thang1  "
+        query &= " 	and [nam] = @nam "
+        query &= " order by [mabaocao] DESC   "
+        query &= " 	) "
+        query &= "  ) as [d]"
+        query &= "on  [tblVatTu].[mavattu] = [d].[mavattu]"
+        query &= ") as [tondau]  "
+        query &= "  on [phatsinh].[mavattu] = [tondau].[mavattu] "
 
-
-        query &= ""
 
 
         Using conn As New SqlConnection(connectionString)
@@ -275,38 +282,61 @@ Public Class vattuDAL
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@malop", maLop)
-                    .Parameters.AddWithValue("@mamonhoc", maMonHoc)
-                    .Parameters.AddWithValue("@mahocsinh", maHocSinh)
+                    .Parameters.AddWithValue("@thang", dt.Month)
+                    If (dt.Month <> 1) Then
+                        .Parameters.AddWithValue("@thang1", dt.Month - 1)
+                        .Parameters.AddWithValue("@nam", dt.Year)
+                    Else
+                        .Parameters.AddWithValue("@thang1", 12)
+                        .Parameters.AddWithValue("@nam", dt.Year - 1)
+                    End If
+
+
                 End With
                 Try
                     conn.Open()
                     Dim reader As SqlDataReader
                     reader = comm.ExecuteReader()
                     If reader.HasRows = True Then
-                        listDiemView.Clear()
+                        list.Clear()
                         While reader.Read()
-                            Dim diemview = New DiemViewDTO()
-                            diemview.MSHS = reader("mahocsinh")
-                            diemview.MaMonHoc = reader("mamonhoc")
-                            diemview.MonHoc = reader("tenmonhoc")
-                            diemview.MaHTDG = reader("mahinhthucdanhgia")
-                            diemview.TenLoaiDiem = reader("tenloaidiem")
-                            diemview.MaLoaiDiem = reader("maloaidiem")
-                            diemview.HeSoDiem = reader("hesodiem")
-                            If (reader("diemso") Is DBNull.Value) Then
-                                diemview.Diem = -1
+                            Dim baocao2 = New baocao2DTO()
+                            baocao2.mavattu = reader("mavattu")
+                            baocao2.tenvattu = reader("tenvattu")
+
+
+
+
+                            If (reader("toncuoi") Is DBNull.Value) Then
+                                baocao2.tondau = 0
                             Else
-                                diemview.Diem = reader("diemso")
+                                baocao2.tondau = reader("toncuoi")
                             End If
-                            listDiemView.Add(diemview)
+                            Dim suachua = 0
+                            Dim nhapmoi = 0
+
+                            If (reader("soluong") Is DBNull.Value) Then
+                                nhapmoi = 0
+                            Else
+                                nhapmoi = reader("soluong")
+                            End If
+
+                            If (reader("tongsoluong") Is DBNull.Value) Then
+                                suachua = 0
+                            Else
+                                suachua = reader("tongsoluong")
+                            End If
+
+                            baocao2.phatsinh = nhapmoi - suachua
+                            baocao2.toncuoi = baocao2.tondau + baocao2.phatsinh
+                            list.Add(baocao2)
                         End While
                     End If
                 Catch ex As Exception
                     Console.WriteLine(ex.StackTrace)
                     conn.Close()
                     ' them that bai!!!
-                    Return New Result(False, "Lấy danh sách điểm của môn học của học sinh đang theo học không thành công", ex.StackTrace)
+                    Return New Result(False)
                 End Try
             End Using
         End Using

@@ -23,6 +23,7 @@ Partial Class baocaothang
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btload = New System.Windows.Forms.Button()
         Me.dgvchitiet = New System.Windows.Forms.DataGridView()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.tbdoanhthu = New System.Windows.Forms.TextBox()
@@ -34,7 +35,6 @@ Partial Class baocaothang
         Me.tbmabaocao = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btluu = New System.Windows.Forms.Button()
-        Me.btload = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvchitiet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
@@ -53,6 +53,15 @@ Partial Class baocaothang
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(730, 592)
         Me.Panel1.TabIndex = 0
+        '
+        'btload
+        '
+        Me.btload.Location = New System.Drawing.Point(261, 246)
+        Me.btload.Name = "btload"
+        Me.btload.Size = New System.Drawing.Size(196, 59)
+        Me.btload.TabIndex = 2
+        Me.btload.Text = "Load"
+        Me.btload.UseVisualStyleBackColor = True
         '
         'dgvchitiet
         '
@@ -156,15 +165,6 @@ Partial Class baocaothang
         Me.btluu.TabIndex = 1
         Me.btluu.Text = "Lưu"
         Me.btluu.UseVisualStyleBackColor = True
-        '
-        'btload
-        '
-        Me.btload.Location = New System.Drawing.Point(261, 246)
-        Me.btload.Name = "btload"
-        Me.btload.Size = New System.Drawing.Size(196, 59)
-        Me.btload.TabIndex = 2
-        Me.btload.Text = "Load"
-        Me.btload.UseVisualStyleBackColor = True
         '
         'baocaothang
         '

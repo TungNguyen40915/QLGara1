@@ -78,4 +78,35 @@ Public Class baocaovattuDAL
         End Using
         Return New Result(True) ' thanh cong
     End Function
+
+    Public Function insert(pt As baocaovattuDTO) As Result
+
+        Dim query As String = String.Empty
+        query &= "INSERT INTO [tblBaoCaoVatTu] ([mabaocao], [thang],[nam])"
+        query &= "VALUES (@mabaocao,@thang,@nam)"
+
+
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@mabaocao", pt.mabaocao)
+                    .Parameters.AddWithValue("@thang", pt.thang)
+                    .Parameters.AddWithValue("@nam", pt.nam)
+
+                End With
+                Try
+                    conn.Open()
+                    comm.ExecuteNonQuery()
+                Catch ex As Exception
+                    conn.Close()
+                    ' them that bai!!!
+                    Return New Result(False, "Thêm Báo Cáo không thành công", ex.StackTrace)
+                End Try
+            End Using
+        End Using
+        Return New Result(True) ' thanh cong
+    End Function
 End Class

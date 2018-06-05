@@ -44,4 +44,8 @@ Public Class vattuBus
         Return vtDAL.update(vt)
     End Function
 
+    Public Function selectvattu_baocao(dt As DateTime, ByRef list As List(Of baocao2DTO)) As Result
+        Return vtDAL.selectvattu_baocao(dt, list)
+    End Function
+
 End Class

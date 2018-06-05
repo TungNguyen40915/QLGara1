@@ -22,4 +22,8 @@ Public Class baocaothangBus
         '2. insert to DB
         Return bcDAL.insert(bc)
     End Function
+
+    Public Function select_bymabaocao(id As String, ByRef a As Integer)
+        Return bcDAL.select_Bymabaocao(id, a)
+    End Function
 End Class
