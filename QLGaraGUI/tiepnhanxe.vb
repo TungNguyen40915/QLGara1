@@ -1,4 +1,5 @@
-﻿Imports QLGaraBus
+﻿
+Imports QLGaraBus
 Imports QLGaraDTO
 Imports Utility
 
@@ -8,9 +9,10 @@ Public Class tiepnhanxe
     Private xBus As xeBus
     Private tnBus As tiepnhanxeBus
     Private hxBus As hieuxeBus
+    Private tsBus As thamsoBus
 
     Private Sub btthoat_Click(sender As Object, e As EventArgs) Handles btthoat.Click
-        If (MessageBox.Show("Thông tin chưa được lưu. Bạn thực sự muốn thoát?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) = DialogResult.OK) Then
+        If (MessageBox.Show(" Bạn thực sự muốn thoát?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) = DialogResult.OK) Then
             Me.Close()
         End If
     End Sub
@@ -20,14 +22,21 @@ Public Class tiepnhanxe
         xBus = New xeBus()
         tnBus = New tiepnhanxeBus()
         hxBus = New hieuxeBus()
+        tsBus = New thamsoBus()
         buimatn()
 
 
         Dim solan As Integer
-        If (solantiepnhan(solan) = True) Then
+        If (solantiepnhan(solan) = 2) Then
             tbsolan.Text = solan.ToString()
+        Else
+            If (solantiepnhan(solan) = 1) Then
+                MessageBox.Show("Đã tiếp nhận đủ xe cho ngày này", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                MessageBox.Show("Đã có lỗi xảy ra", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+            Me.Close()
         End If
-
     End Sub
 
     Private Function buimatn() As Integer
@@ -39,21 +48,35 @@ Public Class tiepnhanxe
         Return 0
     End Function
 
-    Private Function solantiepnhan(ByRef solan) As Boolean
+    Private Function solantiepnhan(ByRef solan) As Integer
         Dim result As Result
         result = tnBus.dem(dtngaytiepnhan.Value, solan)
+
+
         If (result.FlagResult = False) Then
-            Return False
+            Return 0
         Else
-            Return True
+            Dim ts = New thamsoDTO()
+            tsBus.selectall(ts)
+            If (solan >= ts.Soxetoida) Then
+                Return 1
+            End If
+            Return 2
         End If
     End Function
 
     Private Sub dtngaytiepnhan_ValueChanged(sender As Object, e As EventArgs) Handles dtngaytiepnhan.ValueChanged
         buimatn()
         Dim solan As Integer
-        If (solantiepnhan(solan) = True) Then
+        If (solantiepnhan(solan) = 2) Then
             tbsolan.Text = solan.ToString()
+        Else
+            If (solantiepnhan(solan) = 1) Then
+                MessageBox.Show("Đã tiếp nhận đủ xe cho ngày này", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                MessageBox.Show("Đã có lỗi xảy ra", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+            Me.Close()
         End If
     End Sub
 
@@ -63,9 +86,6 @@ Public Class tiepnhanxe
         Dim result As Result
         result = xBus.select_Bybienso(tbbiensoxe.Text, a)
         If (result.FlagResult = False) Then
-            '       Dim b = "Không tìm thấy xe có biển số là " + tbbiensoxe.Text
-            '           MessageBox.Show(b, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            '         System.Console.WriteLine(result.SystemMessage)
             Return False
         Else
             Return True
@@ -87,92 +107,53 @@ Public Class tiepnhanxe
         Return True
     End Function
 
+    Private Sub btluu_Click(sender As Object, e As EventArgs) Handles btluu.Click
+        Dim a As xeDTO
+        a = New xeDTO()
+        If (loadXeByBienso(a) = True) Then
+            Dim x As tiepnhanxeDTO
+            x = New tiepnhanxeDTO()
 
+            '1. Mapping data from GUI control
+            x.Matiepnhan = tbmatiepnhan.Text
+            x.Bienso = tbbiensoxe.Text
+            x.Ngaytiepnhan = dtngaytiepnhan.Value
 
-    Private Sub tbbiensoxe_KeyDown(sender As Object, e As KeyEventArgs) Handles tbbiensoxe.KeyDown
-        If (e.KeyCode = Keys.Enter) Then
-            Dim a As xeDTO
-            a = New xeDTO()
-            If (loadXeByBienso(a) = True) Then
-                Dim b As hieuxeDTO
-                b = New hieuxeDTO()
-                Dim c As chuxeDTO
-                c = New chuxeDTO()
-                loadChuXeByMachuxe(a.Machuxe, c)
-                tbdiachi.Text = c.Diachi
-                tbdienthoai.Text = c.Dienthoai.ToString()
-                tbmachuxe.Text = c.Machuxe
-                tbtenchuxe.Text = c.Tenchuxe
+            Dim b = String.Empty
+            For Each item In x.Bienso
+                b = b + UCase(item)
+            Next
 
+            x.Bienso = b
 
-                loadHieuXeByMahieuxe(a.Mahieuxe.ToString(), b)
-                tbhieuxe.Text = b.Tenhieuxe
+            '2. Insert to DB
+            Dim result As Result
+            result = tnBus.insert(x)
+            If (result.FlagResult = True) Then
+                MessageBox.Show("Tiếp Nhận Xe thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                tbbiensoxe.Text = String.Empty
+                buimatn()
+                Dim solan1 As Integer
+                If (solantiepnhan(solan1) = True) Then
+                    tbsolan.Text = solan1.ToString()
+                End If
+                tbdiachi.Text = String.Empty
+                tbdienthoai.Text = String.Empty
+                tbhieuxe.Text = String.Empty
+                tbmachuxe.Text = String.Empty
+                tbtenchuxe.Text = String.Empty
+
+            Else
+                MessageBox.Show("Tiếp Nhận Xe không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                System.Console.WriteLine(result.SystemMessage)
+            End If
+        Else
+            If (tbbiensoxe.Text = Nothing) Then
+                MessageBox.Show("Vui lòng nhập biển số", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
                 Dim b = "Không tìm thấy xe có biển số là " + tbbiensoxe.Text
                 MessageBox.Show(b, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
-
-        End If
-    End Sub
-
-
-    Private Sub btluu_Click(sender As Object, e As EventArgs) Handles btluu.Click
-        Dim solan As Integer
-        If (solantiepnhan(solan) = True) Then
-            If (solan < 30) Then
-                Dim a As xeDTO
-                a = New xeDTO()
-                If (loadXeByBienso(a) = True) Then
-                    Dim x As tiepnhanxeDTO
-
-                    x = New tiepnhanxeDTO()
-
-                    '1. Mapping data from GUI control
-                    x.Matiepnhan = tbmatiepnhan.Text
-                    x.Bienso = tbbiensoxe.Text
-                    x.Ngaytiepnhan = dtngaytiepnhan.Value
-
-                    Dim b = String.Empty
-                    For Each item In x.Bienso
-                        b = b + UCase(item)
-                    Next
-
-                    x.Bienso = b
-
-                    '2. Insert to DB
-                    Dim result As Result
-                    result = tnBus.insert(x)
-                    If (result.FlagResult = True) Then
-                        MessageBox.Show("Tiếp Nhận Xe thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        tbbiensoxe.Text = String.Empty
-                        buimatn()
-                        Dim solan1 As Integer
-                        If (solantiepnhan(solan1) = True) Then
-                            tbsolan.Text = solan1.ToString()
-                        End If
-                        tbdiachi.Text = String.Empty
-                        tbdienthoai.Text = String.Empty
-                        tbhieuxe.Text = String.Empty
-                        tbmachuxe.Text = String.Empty
-                        tbtenchuxe.Text = String.Empty
-
-                    Else
-                        MessageBox.Show("Tiếp Nhận Xe không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        System.Console.WriteLine(result.SystemMessage)
-                    End If
-                Else
-                    If (tbbiensoxe.Text = Nothing) Then
-                        MessageBox.Show("Vui lòng nhập biển số", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Else
-                        Dim b = "Không tìm thấy xe có biển số là " + tbbiensoxe.Text
-                        MessageBox.Show(b, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End If
-                End If
-            Else
-                MessageBox.Show("Số lần tiếp nhận trong ngày đã vượt quá con số cho phép", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-        Else
-            MessageBox.Show("Lấy số lần tiếp nhận trong ngày thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 
@@ -189,8 +170,7 @@ Public Class tiepnhanxe
         Dim newf = New themxe()
         newf.ShowDialog(Me)
     End Sub
-
-    Private Sub tbbiensoxe_TextChanged(sender As Object, e As EventArgs) Handles tbbiensoxe.TextChanged
+    Private Sub tbbiensoxe_Leave(sender As Object, e As EventArgs) Handles tbbiensoxe.Leave
         If (tbbiensoxe.Text.Length = 0) Then
             btluu.Enabled = False
         Else
@@ -212,11 +192,5 @@ Public Class tiepnhanxe
                 tbhieuxe.Text = b.Tenhieuxe
             End If
         End If
-
-    End Sub
-
-    Private Sub Label10_Click(sender As Object, e As EventArgs) Handles Label10.Click
-        Dim newf = New themhieuxe()
-        newf.ShowDialog(Me)
     End Sub
 End Class
