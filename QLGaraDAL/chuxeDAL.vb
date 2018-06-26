@@ -68,14 +68,6 @@ Public Class chuxeDAL
         query &= "INSERT INTO [tblChuXe] ([machuxe], [tenchuxe],[diachi],[dienthoai],[tienno])"
         query &= "VALUES (@machuxe,@tenchuxe,@diachi,@dienthoai,@tienno)"
 
-        Dim nextID = "CX"
-        Dim result As Result
-        result = getNextID(nextID)
-        If (result.FlagResult = False) Then
-            Return result
-        End If
-        hx.Machuxe = nextID
-
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
                 With comm

@@ -214,4 +214,9 @@ Public Class tiepnhanxe
         End If
 
     End Sub
+
+    Private Sub Label10_Click(sender As Object, e As EventArgs) Handles Label10.Click
+        Dim newf = New themhieuxe()
+        newf.ShowDialog(Me)
+    End Sub
 End Class

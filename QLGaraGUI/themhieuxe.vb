@@ -6,6 +6,8 @@ Imports Utility
 Public Class themhieuxe
 
     Private hieuxeBus As hieuxeBus
+
+
     Private Sub themhieuxe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         hieuxeBus = New hieuxeBus()
 
@@ -17,6 +19,7 @@ Public Class themhieuxe
             tbmahieuxe.Text = nextID.ToString()
         Else
             MessageBox.Show("Lấy ID kế tiếp của Hiệu Xe không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Me.Close()
             System.Console.WriteLine(result.SystemMessage)
         End If
 
@@ -49,16 +52,15 @@ Public Class themhieuxe
                     tbmahieuxe.Text = nextID.ToString()
                 Else
                     MessageBox.Show("Lấy ID kế tiếp của hiệu xe không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Me.Close()
                     System.Console.WriteLine(result.SystemMessage)
                 End If
 
             Else
                 MessageBox.Show("Thêm hiệu xe không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Me.Close()
                 System.Console.WriteLine(result.SystemMessage)
             End If
-
-        Else
-            MessageBox.Show("Vui lòng nhập tên hiệu xe", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 
@@ -70,7 +72,7 @@ Public Class themhieuxe
     End Sub
 
     Private Sub btthoat_Click(sender As Object, e As EventArgs) Handles btthoat.Click
-        If (MessageBox.Show("Thông tin chưa được lưu. Bạn thực sự muốn thoát?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) = DialogResult.OK) Then
+        If (MessageBox.Show("Bạn thực sự muốn thoát?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) = DialogResult.OK) Then
             Me.Close()
         End If
     End Sub

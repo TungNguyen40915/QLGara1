@@ -26,7 +26,7 @@ Public Class themchuxe
     End Sub
 
     Private Function kiemtra() As Boolean
-        If (tbdiachi.Text = Nothing Or tbdienthoai.Text = Nothing Or tbtenchuxe.Text = Nothing Or tbtienno.Text = Nothing) Then
+        If (tbdiachi.Text = Nothing Or tbdienthoai.Text = Nothing Or tbtenchuxe.Text = Nothing Or tbtienno.Text = Nothing Or tbdienthoai.Text.Length < 9) Then
             Return False
         End If
         Return True
@@ -135,5 +135,12 @@ Public Class themchuxe
     Private Sub tbtienno_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbtienno.KeyPress
         Dim mK As Integer = Asc(e.KeyChar)
         e.Handled = Not ((mK >= 48 And mK <= 57) Or mK = 8)
+    End Sub
+
+    Private Sub tbtenchuxe_Leave(sender As Object, e As EventArgs) Handles tbtenchuxe.Leave
+        Dim cx = New chuxeDTO()
+        cx.Tenchuxe = tbtenchuxe.Text
+        cxBus.CheckAndStandardizationName(cx)
+        tbtenchuxe.Text = cx.Tenchuxe
     End Sub
 End Class

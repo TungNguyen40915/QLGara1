@@ -46,6 +46,7 @@ Partial Class tiepnhanxe
         Me.btthoat = New System.Windows.Forms.Button()
         Me.tbsolan = New System.Windows.Forms.TextBox()
         Me.labelsolan = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -53,6 +54,7 @@ Partial Class tiepnhanxe
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.Label10)
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.tbhieuxe)
         Me.Panel1.Controls.Add(Me.Label4)
@@ -288,6 +290,15 @@ Partial Class tiepnhanxe
         Me.labelsolan.TabIndex = 4
         Me.labelsolan.Text = "số lần tiếp nhận"
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(834, 30)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(78, 20)
+        Me.Label10.TabIndex = 5
+        Me.Label10.Text = "Thêm xe?"
+        '
         'tiepnhanxe
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -342,4 +353,5 @@ Partial Class tiepnhanxe
     Friend WithEvents Label9 As Label
     Friend WithEvents tbsolan As TextBox
     Friend WithEvents labelsolan As Label
+    Friend WithEvents Label10 As Label
 End Class

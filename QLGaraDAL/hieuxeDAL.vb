@@ -7,7 +7,6 @@ Public Class hieuxeDAL
     Private connectionString As String
 
     Public Sub New()
-        ' Read ConnectionString value from App.config file
         connectionString = ConfigurationManager.AppSettings("ConnectionString")
     End Sub
     Public Sub New(ConnectionString As String)
@@ -55,16 +54,9 @@ Public Class hieuxeDAL
     Public Function insert(hx As hieuxeDTO) As Result
 
         Dim query As String = String.Empty
+
         query &= "INSERT INTO [tblHieuXe] ([mahieuxe], [tenhieuxe])"
         query &= "VALUES (@mahieuxe,@tenhieuxe)"
-
-        Dim nextID = 0
-        Dim result As Result
-        result = getNextID(nextID)
-        If (result.FlagResult = False) Then
-            Return result
-        End If
-        hx.Mahieuxe = nextID
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()

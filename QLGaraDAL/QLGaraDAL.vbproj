@@ -74,6 +74,7 @@
     <Compile Include="noidungDAL.vb" />
     <Compile Include="phieusuachuaDAL.vb" />
     <Compile Include="phieuthuDAL.vb" />
+    <Compile Include="thamsoDAL.vb" />
     <Compile Include="tiepnhanxeDAL.vb" />
     <Compile Include="vattuDAL.vb" />
     <Compile Include="xeDAL.vb" />

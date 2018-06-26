@@ -21,18 +21,33 @@ Public Class Main
         newf.ShowDialog(Me)
     End Sub
 
-    Private Sub btlapbaocaotheothang_Click(sender As Object, e As EventArgs) Handles btlapbaocaotheothang.Click
+    Private Sub btlapbaocaotheothang_Click(sender As Object, e As EventArgs)
         Dim newf = New baocaothang()
         newf.ShowDialog(Me)
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btlapphieusuachua.Click
         Dim newf = New lapphieusuachua()
         newf.ShowDialog(Me)
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
         Dim newf = New baocaovattu()
+        newf.ShowDialog(Me)
+    End Sub
+
+    Private Sub btthemxe_Click(sender As Object, e As EventArgs) Handles btthemxe.Click
+        Dim newf = New themxe()
+        newf.ShowDialog(Me)
+    End Sub
+
+    Private Sub btthemchuxe_Click(sender As Object, e As EventArgs) Handles btthemchuxe.Click
+        Dim newf = New themchuxe()
+        newf.ShowDialog(Me)
+    End Sub
+
+    Private Sub btthemhieuxe_Click(sender As Object, e As EventArgs) Handles btthemhieuxe.Click
+        Dim newf = New themhieuxe()
         newf.ShowDialog(Me)
     End Sub
 End Class

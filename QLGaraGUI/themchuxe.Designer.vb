@@ -27,6 +27,7 @@ Partial Class themchuxe
         Me.tbdienthoai = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.tbtienno = New System.Windows.Forms.TextBox()
         Me.labeltienno = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
@@ -41,7 +42,6 @@ Partial Class themchuxe
         Me.btluu = New System.Windows.Forms.Button()
         Me.btnhaplai = New System.Windows.Forms.Button()
         Me.btthoat = New System.Windows.Forms.Button()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
@@ -98,6 +98,16 @@ Partial Class themchuxe
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(766, 61)
         Me.Panel5.TabIndex = 4
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(632, 9)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(86, 37)
+        Me.Label5.TabIndex = 2
+        Me.Label5.Text = "VNĐ"
         '
         'tbtienno
         '
@@ -228,16 +238,6 @@ Partial Class themchuxe
         Me.btthoat.TabIndex = 3
         Me.btthoat.Text = "Thoát"
         Me.btthoat.UseVisualStyleBackColor = True
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(632, 9)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(86, 37)
-        Me.Label5.TabIndex = 2
-        Me.Label5.Text = "VNĐ"
         '
         'themchuxe
         '

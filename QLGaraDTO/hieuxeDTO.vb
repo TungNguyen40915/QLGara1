@@ -1,4 +1,5 @@
 ﻿Public Class hieuxeDTO
+
     Private imahieuxe As Integer
     Private strtenhieuxe As String
 

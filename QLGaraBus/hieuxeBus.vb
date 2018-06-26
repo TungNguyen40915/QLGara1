@@ -24,11 +24,11 @@ Public Class hieuxeBus
     End Function
 
 
-    Public Function selectAll(ByRef listLoaiHS As List(Of hieuxeDTO)) As Result
+    Public Function selectAll(ByRef listhieuxe As List(Of hieuxeDTO)) As Result
         '1. verify data here!!
 
         '2. insert to DB
-        Return hxDAL.selectALL(listLoaiHS)
+        Return hxDAL.selectALL(listhieuxe)
     End Function
 
     Public Function select_ByMahieuxe(id As String, ByRef cx As hieuxeDTO) As Result
