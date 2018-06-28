@@ -70,7 +70,6 @@
     <Compile Include="chitietphieusuachuaBus.vb" />
     <Compile Include="chuxeBus.vb" />
     <Compile Include="hieuxeBus.vb" />
-    <Compile Include="noidungBus.vb" />
     <Compile Include="phieusuachuaBus.vb" />
     <Compile Include="phieuthuBus.vb" />
     <Compile Include="thamsoBus.vb" />

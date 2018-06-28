@@ -71,7 +71,6 @@
     <Compile Include="chitietphieusuachuaDAL.vb" />
     <Compile Include="chuxeDAL.vb" />
     <Compile Include="hieuxeDAL.vb" />
-    <Compile Include="noidungDAL.vb" />
     <Compile Include="phieusuachuaDAL.vb" />
     <Compile Include="phieuthuDAL.vb" />
     <Compile Include="thamsoDAL.vb" />

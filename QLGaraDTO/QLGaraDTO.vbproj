@@ -72,7 +72,6 @@
     <Compile Include="chitietphieusuachuaDTO.vb" />
     <Compile Include="chuxeDTO.vb" />
     <Compile Include="hieuxeDTO.vb" />
-    <Compile Include="noidungDTO.vb" />
     <Compile Include="phieusuachuaDTO.vb" />
     <Compile Include="phieuthuDTO.vb" />
     <Compile Include="suachuaDTO.vb" />
