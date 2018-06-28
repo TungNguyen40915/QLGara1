@@ -1,29 +1,16 @@
 ﻿Public Class chitietphieusuachuaDTO
+    Private strmachitiet As String
     Private strmaphieu As String
-    Private imanoidung As Integer
+    Private strnoidung As String
     Private imavattu As Integer
     Private isoluong As Integer
     Private idongia As Integer
     Private itiencong As Integer
     Private itong As Integer
 
-    Public Property maphieu As String
-        Get
-            Return strmaphieu
-        End Get
-        Set(value As String)
-            strmaphieu = value
-        End Set
-    End Property
 
-    Public Property manoidung As Integer
-        Get
-            Return imanoidung
-        End Get
-        Set(value As Integer)
-            imanoidung = value
-        End Set
-    End Property
+
+
 
     Public Property mavattu As Integer
         Get
@@ -70,14 +57,42 @@
         End Set
     End Property
 
+    Public Property Maphieu As String
+        Get
+            Return strmaphieu
+        End Get
+        Set(value As String)
+            strmaphieu = value
+        End Set
+    End Property
+
+    Public Property noidung As String
+        Get
+            Return strnoidung
+        End Get
+        Set(value As String)
+            strnoidung = value
+        End Set
+    End Property
+
+    Public Property machitiet As String
+        Get
+            Return strmachitiet
+        End Get
+        Set(value As String)
+            strmachitiet = value
+        End Set
+    End Property
+
     Public Sub New()
 
     End Sub
 
-    Public Sub New(mp As String, mavt As Integer, mand As Integer, sl As Integer, dg As Integer, tc As Integer, tt As Integer)
-        Me.maphieu = mp
+    Public Sub New(mct As String, mp As String, mavt As Integer, mand As String, sl As Integer, dg As Integer, tc As Integer, tt As Integer)
+        Me.strmachitiet = mct
+        Me.Maphieu = mp
         Me.mavattu = mavt
-        Me.manoidung = mand
+        Me.strnoidung = mand
         Me.soluong = sl
         Me.dongia = dg
         Me.tiencong = tc

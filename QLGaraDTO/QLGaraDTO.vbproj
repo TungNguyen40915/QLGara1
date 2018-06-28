@@ -75,6 +75,7 @@
     <Compile Include="phieusuachuaDTO.vb" />
     <Compile Include="phieuthuDTO.vb" />
     <Compile Include="suachuaDTO.vb" />
+    <Compile Include="taikhoanDTO.vb" />
     <Compile Include="thamsoDTO.vb" />
     <Compile Include="tiepnhanxeDTO.vb" />
     <Compile Include="tracuuxeDTO.vb" />

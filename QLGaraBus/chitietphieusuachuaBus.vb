@@ -11,9 +11,7 @@ Public Class chitietphieusuachuaBus
     End Sub
 
     Public Function insert(ct As chitietphieusuachuaDTO) As Result
-        '1. verify data here!!
-
-        '2. insert to DB
         Return ctDAL.insert(ct)
     End Function
+
 End Class

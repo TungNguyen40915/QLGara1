@@ -39,4 +39,15 @@
             itongtien = value
         End Set
     End Property
+
+    Public Sub New()
+
+    End Sub
+
+    Public Sub New(maphieu As String, bienso As String, ngaythu As DateTime, tongtien As Integer)
+        Me.strmaphieu = maphieu
+        Me.strbienso = bienso
+        Me.dtngaythu = ngaythu
+        Me.itongtien = tongtien
+    End Sub
 End Class

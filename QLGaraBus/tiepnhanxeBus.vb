@@ -29,4 +29,14 @@ Public Class tiepnhanxeBus
         '2. insert to DB
         Return tnxDAL.dem(dt, solan)
     End Function
+
+    Public Function selectAll(ByRef listphieu As List(Of tiepnhanxeDTO)) As Result
+
+        Return tnxDAL.selectALL(listphieu)
+    End Function
+
+    Public Function delete(matn As String) As Result
+
+        Return tnxDAL.delete(matn)
+    End Function
 End Class

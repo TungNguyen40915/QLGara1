@@ -38,5 +38,11 @@ Public Class hieuxeBus
         Return hxDAL.select_ByMahieuxe(id, cx)
     End Function
 
+    Public Function update(hx As hieuxeDTO) As Result
+        '1. verify data here!!
+
+        '2. insert to DB
+        Return hxDAL.update(hx)
+    End Function
 
 End Class

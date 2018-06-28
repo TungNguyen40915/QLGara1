@@ -73,8 +73,10 @@
     <Compile Include="hieuxeDAL.vb" />
     <Compile Include="phieusuachuaDAL.vb" />
     <Compile Include="phieuthuDAL.vb" />
+    <Compile Include="taikhoanDAL.vb" />
     <Compile Include="thamsoDAL.vb" />
     <Compile Include="tiepnhanxeDAL.vb" />
+    <Compile Include="tracuuxeDAL.vb" />
     <Compile Include="vattuDAL.vb" />
     <Compile Include="xeDAL.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

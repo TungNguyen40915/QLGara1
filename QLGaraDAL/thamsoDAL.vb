@@ -77,4 +77,6 @@ Public Class thamsoDAL
         End Using
         Return New Result(True) ' thanh cong
     End Function
+
+
 End Class

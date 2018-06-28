@@ -1,5 +1,4 @@
-﻿
-Imports QLGaraBus
+﻿Imports QLGaraBus
 Imports QLGaraDTO
 Imports Utility
 
@@ -24,19 +23,7 @@ Public Class tiepnhanxe
         hxBus = New hieuxeBus()
         tsBus = New thamsoBus()
         buimatn()
-
-
-        Dim solan As Integer
-        If (solantiepnhan(solan) = 2) Then
-            tbsolan.Text = solan.ToString()
-        Else
-            If (solantiepnhan(solan) = 1) Then
-                MessageBox.Show("Đã tiếp nhận đủ xe cho ngày này", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Else
-                MessageBox.Show("Đã có lỗi xảy ra", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-            Me.Close()
-        End If
+        solantiepnhan()
     End Sub
 
     Private Function buimatn() As Integer
@@ -48,36 +35,33 @@ Public Class tiepnhanxe
         Return 0
     End Function
 
-    Private Function solantiepnhan(ByRef solan) As Integer
+    Private Function solantiepnhan() As Integer
+        Dim solan As Integer
         Dim result As Result
         result = tnBus.dem(dtngaytiepnhan.Value, solan)
-
-
         If (result.FlagResult = False) Then
-            Return 0
+            MessageBox.Show("Đã có lỗi xảy ra", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Me.Close()
         Else
             Dim ts = New thamsoDTO()
-            tsBus.selectall(ts)
-            If (solan >= ts.Soxetoida) Then
-                Return 1
+            result = tsBus.selectall(ts)
+            If (result.FlagResult = False) Then
+                MessageBox.Show("Đã có lỗi xảy ra", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Me.Close()
+            ElseIf (solan >= ts.Soxetoida) Then
+                MessageBox.Show("Đã tiếp nhận đủ xe cho ngày này", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Me.Close()
+            Else
+                tbsolan.Text = solan
             End If
-            Return 2
+
         End If
+        Return 0
     End Function
 
     Private Sub dtngaytiepnhan_ValueChanged(sender As Object, e As EventArgs) Handles dtngaytiepnhan.ValueChanged
         buimatn()
-        Dim solan As Integer
-        If (solantiepnhan(solan) = 2) Then
-            tbsolan.Text = solan.ToString()
-        Else
-            If (solantiepnhan(solan) = 1) Then
-                MessageBox.Show("Đã tiếp nhận đủ xe cho ngày này", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Else
-                MessageBox.Show("Đã có lỗi xảy ra", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-            Me.Close()
-        End If
+        solantiepnhan()
     End Sub
 
 
@@ -107,7 +91,7 @@ Public Class tiepnhanxe
         Return True
     End Function
 
-    Private Sub btluu_Click(sender As Object, e As EventArgs) Handles btluu.Click
+    Private Sub btluu_Click(sender As Object, e As EventArgs) Handles Label9.Click, btluu.Click
         Dim a As xeDTO
         a = New xeDTO()
         If (loadXeByBienso(a) = True) Then
@@ -133,10 +117,7 @@ Public Class tiepnhanxe
                 MessageBox.Show("Tiếp Nhận Xe thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 tbbiensoxe.Text = String.Empty
                 buimatn()
-                Dim solan1 As Integer
-                If (solantiepnhan(solan1) = True) Then
-                    tbsolan.Text = solan1.ToString()
-                End If
+                solantiepnhan()
                 tbdiachi.Text = String.Empty
                 tbdienthoai.Text = String.Empty
                 tbhieuxe.Text = String.Empty
@@ -166,7 +147,7 @@ Public Class tiepnhanxe
         Label9.ForeColor = Color.Black
     End Sub
 
-    Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
+    Private Sub Label9_Click(sender As Object, e As EventArgs)
         Dim newf = New themxe()
         newf.ShowDialog(Me)
     End Sub

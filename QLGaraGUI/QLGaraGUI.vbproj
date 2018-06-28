@@ -85,6 +85,18 @@
     <Compile Include="baocaovattu.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="dangnhap.Designer.vb">
+      <DependentUpon>dangnhap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="dangnhap.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="doimatkhau.Designer.vb">
+      <DependentUpon>doimatkhau.vb</DependentUpon>
+    </Compile>
+    <Compile Include="doimatkhau.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="lapphieusuachua.Designer.vb">
       <DependentUpon>lapphieusuachua.vb</DependentUpon>
     </Compile>
@@ -119,6 +131,42 @@
     <Compile Include="phieuthu.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="quanlychuxe.Designer.vb">
+      <DependentUpon>quanlychuxe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="quanlychuxe.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="quanlyhieuxexe.Designer.vb">
+      <DependentUpon>quanlyhieuxexe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="quanlyhieuxexe.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="quanlynhapxe.Designer.vb">
+      <DependentUpon>quanlynhapxe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="quanlynhapxe.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="quanlyphieuthu.Designer.vb">
+      <DependentUpon>quanlyphieuthu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="quanlyphieuthu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="quanlyvattu.Designer.vb">
+      <DependentUpon>quanlyvattu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="quanlyvattu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="thaydoiquydinh.Designer.vb">
+      <DependentUpon>thaydoiquydinh.vb</DependentUpon>
+    </Compile>
+    <Compile Include="thaydoiquydinh.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="themchuxe.Designer.vb">
       <DependentUpon>themchuxe.vb</DependentUpon>
     </Compile>
@@ -131,12 +179,6 @@
     <Compile Include="themhieuxe.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="themnoidung.Designer.vb">
-      <DependentUpon>themnoidung.vb</DependentUpon>
-    </Compile>
-    <Compile Include="themnoidung.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="themvattu.Designer.vb">
       <DependentUpon>themvattu.vb</DependentUpon>
     </Compile>
@@ -147,6 +189,12 @@
       <DependentUpon>themxe.vb</DependentUpon>
     </Compile>
     <Compile Include="themxe.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="thongtintaikhoan.Designer.vb">
+      <DependentUpon>thongtintaikhoan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="thongtintaikhoan.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="tiepnhanxe.Designer.vb">
@@ -169,6 +217,12 @@
     <EmbeddedResource Include="baocaovattu.resx">
       <DependentUpon>baocaovattu.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="dangnhap.resx">
+      <DependentUpon>dangnhap.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="doimatkhau.resx">
+      <DependentUpon>doimatkhau.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="lapphieusuachua.resx">
       <DependentUpon>lapphieusuachua.vb</DependentUpon>
     </EmbeddedResource>
@@ -184,20 +238,38 @@
     <EmbeddedResource Include="phieuthu.resx">
       <DependentUpon>phieuthu.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="quanlychuxe.resx">
+      <DependentUpon>quanlychuxe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="quanlyhieuxexe.resx">
+      <DependentUpon>quanlyhieuxexe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="quanlynhapxe.resx">
+      <DependentUpon>quanlynhapxe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="quanlyphieuthu.resx">
+      <DependentUpon>quanlyphieuthu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="quanlyvattu.resx">
+      <DependentUpon>quanlyvattu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="thaydoiquydinh.resx">
+      <DependentUpon>thaydoiquydinh.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="themchuxe.resx">
       <DependentUpon>themchuxe.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="themhieuxe.resx">
       <DependentUpon>themhieuxe.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="themnoidung.resx">
-      <DependentUpon>themnoidung.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="themvattu.resx">
       <DependentUpon>themvattu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="themxe.resx">
       <DependentUpon>themxe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="thongtintaikhoan.resx">
+      <DependentUpon>thongtintaikhoan.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tiepnhanxe.resx">
       <DependentUpon>tiepnhanxe.vb</DependentUpon>

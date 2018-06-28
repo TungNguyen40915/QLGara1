@@ -7,12 +7,13 @@ Public Class xeDAL
     Private connectionString As String
 
     Public Sub New()
-        ' Read ConnectionString value from App.config file
         connectionString = ConfigurationManager.AppSettings("ConnectionString")
     End Sub
     Public Sub New(ConnectionString As String)
         Me.connectionString = ConnectionString
     End Sub
+
+
 
     Public Function insert(hx As xeDTO) As Result
 

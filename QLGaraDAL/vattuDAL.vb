@@ -129,7 +129,7 @@ Public Class vattuDAL
         query &= "   [mavattu] = @mavattu   "
         query &= " ,  [tenvattu] = @tenvattu   "
         query &= " ,  [dongia] = @dongia   "
-        query &= " ,  [luongton] = @luongton   "
+        query &= " ,  [tonkho] = @luongton   "
         query &= "    WHERE  "
         query &= "   [mavattu] = @mavattu   "
 

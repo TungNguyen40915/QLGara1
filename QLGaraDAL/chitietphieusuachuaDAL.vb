@@ -8,7 +8,6 @@ Public Class chitietphieusuachuaDAL
     Private connectionString As String
 
     Public Sub New()
-        ' Read ConnectionString value from App.config file
         connectionString = ConfigurationManager.AppSettings("ConnectionString")
     End Sub
     Public Sub New(ConnectionString As String)
@@ -18,8 +17,8 @@ Public Class chitietphieusuachuaDAL
     Public Function insert(ct As chitietphieusuachuaDTO) As Result
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO [tblCTPSC] ([maphieu], [mavattu],[manoidung],[soluong],[dongia],[tiencong],[thanhtien])"
-        query &= "VALUES (@maphieu,@mavattu,@manoidung,@soluong,@dongia,@tiencong,@thanhtien)"
+        query &= "INSERT INTO [tblCTPSC] ([machitiet],[maphieu], [mavattu],[noidung],[soluong],[dongia],[tiencong],[thanhtien])"
+        query &= "VALUES (@maphieu,@mavattu,@noidung,@soluong,@dongia,@tiencong,@thanhtien)"
 
 
         Using conn As New SqlConnection(connectionString)
@@ -28,9 +27,10 @@ Public Class chitietphieusuachuaDAL
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@maphieu", ct.maphieu)
+                    .Parameters.AddWithValue("@machitiet", ct.machitiet)
+                    .Parameters.AddWithValue("@maphieu", ct.Maphieu)
                     .Parameters.AddWithValue("@mavattu", ct.mavattu)
-                    .Parameters.AddWithValue("@manoidung", ct.manoidung)
+                    .Parameters.AddWithValue("@manoidung", ct.noidung)
                     .Parameters.AddWithValue("@soluong", ct.soluong)
                     .Parameters.AddWithValue("@dongia", ct.dongia)
                     .Parameters.AddWithValue("@tiencong", ct.tiencong)

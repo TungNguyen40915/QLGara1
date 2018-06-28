@@ -155,4 +155,35 @@ Public Class hieuxeDAL
         End Using
         Return New Result(True) ' thanh cong
     End Function
+
+    Public Function update(hx As hieuxeDTO) As Result
+
+        Dim query As String = String.Empty
+        query &= " UPDATE [tblHieuXe] SET  "
+        query &= "   [tenhieuxe] = @tenhieuxe   "
+        query &= "    WHERE  "
+        query &= "   [mahieuxe] = @mahieuxe   "
+
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@tenhieuxe", hx.Tenhieuxe)
+                    .Parameters.AddWithValue("@mahieuxe", hx.Mahieuxe)
+                End With
+                Try
+                    conn.Open()
+                    comm.ExecuteNonQuery()
+                Catch ex As Exception
+                    Console.WriteLine(ex.StackTrace)
+                    conn.Close()
+                    System.Console.WriteLine(ex.StackTrace)
+                    Return New Result(False, "Cập nhật Hiệu Xe không thành công", ex.StackTrace)
+                End Try
+            End Using
+        End Using
+        Return New Result(True) ' thanh cong
+    End Function
 End Class

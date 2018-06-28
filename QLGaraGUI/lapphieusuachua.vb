@@ -8,11 +8,9 @@ Public Class lapphieusuachua
     Private ctpscBus As chitietphieusuachuaBus
     Private cxBus As chuxeBus
     Private hxBus As hieuxeBus
-    Private ndBus As noidungBus
     Private vtBus As vattuBus
     Private xBus As xeBus
     Private listhienthi As List(Of suachuaDTO)
-    Private listnoidung As List(Of noidungDTO)
     Private listvattu As List(Of vattuDTO)
     Private tongtrigia As Integer
     Private Sub lapphieusuachua_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -20,15 +18,11 @@ Public Class lapphieusuachua
         xBus = New xeBus()
         cxBus = New chuxeBus()
         hxBus = New hieuxeBus()
-        ndBus = New noidungBus()
         vtBus = New vattuBus()
         ctpscBus = New chitietphieusuachuaBus()
         listhienthi = New List(Of suachuaDTO)
-        listnoidung = New List(Of noidungDTO)
         listvattu = New List(Of vattuDTO)
         tongtrigia = 0
-
-
 
         loadID()
         tbtongtien.Text = "0"
@@ -36,18 +30,14 @@ Public Class lapphieusuachua
 
 
         Dim result As Result
-        result = ndBus.selectall(listnoidung)
-        If (result.FlagResult = True) Then
-            cbbnoidung.DataSource = New BindingSource(listnoidung, String.Empty)
-            cbbnoidung.DisplayMember = "tennoidung"
-            cbbnoidung.ValueMember = "mand"
-        End If
-
         result = vtBus.selectall(listvattu)
         If (result.FlagResult = True) Then
             cbbvattu.DataSource = New BindingSource(listvattu, String.Empty)
             cbbvattu.DisplayMember = "tenvattu"
             cbbvattu.ValueMember = "mavattu"
+        Else
+            MessageBox.Show("Không thể lấy danh sách vật tư", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Me.Close()
         End If
 
     End Sub
@@ -63,6 +53,7 @@ Public Class lapphieusuachua
         Else
             MessageBox.Show("Lấy ID của phiếu sửa chữa không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             System.Console.WriteLine(result.SystemMessage)
+            Me.Close()
         End If
         Return False
     End Function
@@ -83,21 +74,12 @@ Public Class lapphieusuachua
         Return False
     End Function
 
-    Private Sub tbbienso_TextChanged(sender As Object, e As EventArgs) Handles tbbienso.TextChanged
-        loadthongtinxe()
-    End Sub
-
-    Private Sub dtpngaytiepnhan_ValueChanged(sender As Object, e As EventArgs) Handles dtpngaytiepnhan.ValueChanged
+    Private Sub dtpngaytiepnhan_ValueChanged(sender As Object, e As EventArgs) 
         loadID()
     End Sub
 
-    Private Sub btthemvattu_Click(sender As Object, e As EventArgs) Handles btthemvattu.Click
+    Private Sub btthemvattu_Click(sender As Object, e As EventArgs) Handles btthemvattu.Click 
         Dim newf = New themvattu()
-        newf.ShowDialog(Me)
-    End Sub
-
-    Private Sub btthemnoidung_Click(sender As Object, e As EventArgs) Handles btthemnoidung.Click
-        Dim newf = New themnoidung()
         newf.ShowDialog(Me)
     End Sub
 
@@ -163,28 +145,13 @@ Public Class lapphieusuachua
     End Function
 
 
-    Private Function loadnoidung(ByRef a As noidungDTO) As Boolean
-        Dim result As Result
-        result = ndBus.select_Bymand(tbmanoidung.Text, a)
-        Return result.FlagResult
-    End Function
-
     Private Function loadvattu(ByRef a As vattuDTO) As Boolean
         Dim result As Result
         result = vtBus.select_Bymavattu(tbmavattu.Text, a)
         Return result.FlagResult
     End Function
-    Private Sub tbmanoidung_TextChanged(sender As Object, e As EventArgs) Handles tbmanoidung.TextChanged
-        Dim a = New noidungDTO()
-        If (loadnoidung(a) = True) Then
-            cbbnoidung.Text = a.tennoidung
-        Else
-            cbbnoidung.Text = String.Empty
-        End If
 
-    End Sub
-
-    Private Sub tbmavattu_TextChanged(sender As Object, e As EventArgs) Handles tbmavattu.TextChanged
+    Private Sub tbmavattu_TextChanged(sender As Object, e As EventArgs) Handles tbmavattu.TextChanged 
         Dim a = New vattuDTO()
         If (loadvattu(a) = True) Then
             cbbvattu.Text = a.tenvattu
@@ -194,54 +161,50 @@ Public Class lapphieusuachua
 
     End Sub
 
-    Private Sub cbbnoidung_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbbnoidung.SelectedIndexChanged
-        Dim a As noidungDTO
-        a = cbbnoidung.SelectedItem
-        tbmanoidung.Text = a.mand
-    End Sub
-
-    Private Sub cbbvattu_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbbvattu.SelectedIndexChanged
+    Private Sub cbbvattu_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbbvattu.SelectedIndexChanged 
         Dim a As vattuDTO
         a = cbbvattu.SelectedItem
         tbmavattu.Text = a.mavattu
     End Sub
 
-    Private Sub btthem_Click(sender As Object, e As EventArgs) Handles btthem.Click
-        Dim nd = New noidungDTO()
-        Dim vt = New vattuDTO()
-        If (tbmanoidung.Text = Nothing Or loadnoidung(nd) = False) Then
-            MessageBox.Show("Vui lòng kiểm tra lại nội dung sửa chữa ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Else
-            If (tbmavattu.Text = Nothing) Then
-                Dim vtgia = New vattuDTO(0, "", 0, 0)
-                Dim tt = nd.tiencong
-                listhienthi.Add(New suachuaDTO(nd.mand, nd.tennoidung, vtgia.mavattu, vtgia.tenvattu, 0, vt.dongia, nd.tiencong, tt.ToString()))
-                buildgv(listhienthi)
-                tongtrigia += tt
-                tbtongtien.Text = tongtrigia
-            ElseIf (loadvattu(vt) = True) Then
-                Dim tt = vt.dongia + nd.tiencong
-                listhienthi.Add(New suachuaDTO(nd.mand, nd.tennoidung, vt.mavattu, vt.tenvattu, 1, vt.dongia, nd.tiencong, tt.ToString()))
-                buildgv(listhienthi)
-                tongtrigia += tt
-                tbtongtien.Text = tongtrigia
-            Else
-                MessageBox.Show("Vui lòng kiểm tra lại vật tư ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-        End If
+    Private Sub btthem_Click(sender As Object, e As EventArgs) Handles btthem.Click 
+
+        ''   If (tbnoidung.Text = Nothing) Then
+        '    MessageBox.Show("Vui lòng nhập lại nội dung sửa chữa ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        '    Else
+        ' Dim vt = New vattuDTO()
+        '   If (tbmavattu.Text = Nothing) Then
+        '  Dim vtgia = New vattuDTO(0, "", 0, 0)
+        '  listhienthi.Add(New suachuaDTO(tbnoidung.Text, vtgia.mavattu, vtgia.tenvattu, 0, vtgia.dongia, 0, 0))
+        '  buildgv(listhienthi)
+        ' tongtrigia += 0
+        '  tbtongtien.Text = tongtrigia
+        'ElseIf (loadvattu(vt) = True) Then
+        '    Dim tt = vt.dongia
+        ' listhienthi.Add(New suachuaDTO(tbnoidung.Text, vt.mavattu, vt.tenvattu, 1, vt.dongia, 0, vt.dongia))
+        'buildgv(listhienthi)
+        '   tongtrigia += tt
+        '   tbtongtien.Text = tongtrigia
+        ' Else
+        '   MessageBox.Show("Vui lòng kiểm tra lại vật tư ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ' End If
+        '  End If
 
 
     End Sub
 
 
 
-    Private Sub btxoa_Click(sender As Object, e As EventArgs) Handles btxoa.Click
+    Private Sub btxoa_Click(sender As Object, e As EventArgs) Handles btxoa.Click 
         Dim currentRowIndex As Integer = dgv.CurrentCellAddress.Y 'current row selected
 
         If (-1 < currentRowIndex And currentRowIndex < dgv.RowCount) Then
             Try
 
                 Dim suachua = CType(dgv.Rows(currentRowIndex).DataBoundItem, suachuaDTO)
+                Dim tt = Convert.ToInt32(tbtongtien.Text)
+                tt -= suachua.tongtien
+                tbtongtien.Text = tt.ToString()
                 listhienthi.Remove(suachua)
                 buildgv(listhienthi)
 
@@ -255,7 +218,7 @@ Public Class lapphieusuachua
         End If
     End Sub
 
-    Private Sub btluu_Click(sender As Object, e As EventArgs) Handles btluu.Click
+    Private Sub btluu_Click(sender As Object, e As EventArgs) Handles btluu.Click 
         If (tbbienso.Text = Nothing Or dgv.RowCount = 0 Or loadthongtinxe() = False) Then
             MessageBox.Show("Vui lòng kiểm tra lại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
@@ -266,7 +229,6 @@ Public Class lapphieusuachua
                 loadID()
                 dgv.DataSource = Nothing
                 tbbienso.Text = String.Empty
-
             End If
         End If
     End Sub
@@ -290,7 +252,13 @@ Public Class lapphieusuachua
             Dim suachua = CType(dgv.Rows(i).DataBoundItem, suachuaDTO)
 
             Dim ct As chitietphieusuachuaDTO
-            ct = New chitietphieusuachuaDTO(tbmaphieu.Text, suachua.mavattu, suachua.manoidung, suachua.soluong, suachua.dongia, suachua.tiencong, suachua.tongtien)
+            Dim machitiet = String.Empty
+            If (i <= 9) Then
+                machitiet = tbmaphieu.Text + "0" + i.ToString()
+            Else
+                machitiet = tbmaphieu.Text + i.ToString()
+            End If
+            ct = New chitietphieusuachuaDTO(machitiet, tbmaphieu.Text, suachua.mavattu, suachua.tennoidung, suachua.soluong, suachua.dongia, suachua.tiencong, suachua.tongtien)
 
             Dim result As Result
             result = ctpscBus.insert(ct)
@@ -302,28 +270,35 @@ Public Class lapphieusuachua
         Next
         Return True
     End Function
-
-    Private Sub dgv_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv.CellValueChanged
-        Dim currentRowIndex As Integer = dgv.CurrentCellAddress.Y 'current row selected
+    Private Sub tbbienso_Leave(sender As Object, e As EventArgs) Handles tbbienso.Leave 
+        loadthongtinxe()
+    End Sub
+    Private Sub dgv_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv.CellValueChanged 
+        Dim currentRowIndex As Integer = dgv.CurrentCellAddress.Y
 
         If (-1 < currentRowIndex And currentRowIndex < dgv.RowCount) Then
             Try
-
                 Dim ct = CType(dgv.Rows(currentRowIndex).DataBoundItem, suachuaDTO)
+                '   Dim ca = ct
+                '   listhienthi.Remove(ct)
 
-                listhienthi.Remove(ct)
-                ' buildgv(listhienthi)
                 tbtongtien.Text = (Convert.ToInt32(tbtongtien.Text) - ct.tongtien).ToString()
+
                 ct.tongtien = ct.soluong * ct.dongia + ct.tiencong
-                listhienthi.Add(ct)
-
+                ' listhienthi.Add(ct)
+                'listhienthi.Remove(ca)
                 buildgv(listhienthi)
+                dgv(5, currentRowIndex).Value = ct.tongtien.ToString
 
+
+                '  Dim a = ct.soluong * ct.dongia + ct.tiencong
                 tbtongtien.Text = (Convert.ToInt32(tbtongtien.Text) + ct.tongtien).ToString()
-
+                '   dgv(5, currentRowIndex).Value = a.ToString()
             Catch ex As Exception
                 Console.WriteLine(ex.StackTrace)
             End Try
         End If
+        '  End If
     End Sub
+
 End Class

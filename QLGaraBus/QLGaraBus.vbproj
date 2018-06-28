@@ -72,8 +72,10 @@
     <Compile Include="hieuxeBus.vb" />
     <Compile Include="phieusuachuaBus.vb" />
     <Compile Include="phieuthuBus.vb" />
+    <Compile Include="taikhoanBus.vb" />
     <Compile Include="thamsoBus.vb" />
     <Compile Include="tiepnhanxeBus.vb" />
+    <Compile Include="tracuuxeBus.vb" />
     <Compile Include="vattuBus.vb" />
     <Compile Include="xeBus.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

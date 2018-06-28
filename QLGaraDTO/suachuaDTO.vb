@@ -1,5 +1,4 @@
 ﻿Public Class suachuaDTO
-    Private imanoidung As Integer
     Private strtennoidung As String
     Private imavattu As Integer
     Private strtenvattu As String
@@ -7,15 +6,6 @@
     Private idongia As Integer
     Private itiencong As Integer
     Private itongtien As Integer
-
-    Public Property manoidung As Integer
-        Get
-            Return imanoidung
-        End Get
-        Set(value As Integer)
-            imanoidung = value
-        End Set
-    End Property
 
     Public Property tennoidung As String
         Get
@@ -84,8 +74,7 @@
 
     End Sub
 
-    Public Sub New(mand As Integer, tennd As String, mavt As Integer, tenvt As String, sl As Integer, dg As Integer, tc As Integer, tt As Integer)
-        Me.imanoidung = mand
+    Public Sub New(tennd As String, mavt As Integer, tenvt As String, sl As Integer, dg As Integer, tc As Integer, tt As Integer)
         Me.strtennoidung = tennd
         Me.imavattu = mavt
         Me.strtenvattu = tenvt

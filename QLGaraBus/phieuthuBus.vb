@@ -24,4 +24,11 @@ Public Class phieuthuBus
         '2. insert to DB
         Return ptDAL.insert(cx)
     End Function
+
+    Public Function selectall(ByRef list As List(Of phieuthuDTO)) As Result
+        '1. verify data here!!
+
+        '2. insert to DB
+        Return ptDAL.selectALL(list)
+    End Function
 End Class
