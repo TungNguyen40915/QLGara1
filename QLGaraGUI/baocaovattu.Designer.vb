@@ -43,7 +43,7 @@ Partial Class baocaovattu
         Me.btluu.Location = New System.Drawing.Point(256, 585)
         Me.btluu.Name = "btluu"
         Me.btluu.Size = New System.Drawing.Size(196, 59)
-        Me.btluu.TabIndex = 3
+        Me.btluu.TabIndex = 2
         Me.btluu.Text = "Lưu"
         Me.btluu.UseVisualStyleBackColor = True
         '
@@ -63,7 +63,7 @@ Partial Class baocaovattu
         Me.btload.Location = New System.Drawing.Point(253, 173)
         Me.btload.Name = "btload"
         Me.btload.Size = New System.Drawing.Size(196, 59)
-        Me.btload.TabIndex = 2
+        Me.btload.TabIndex = 1
         Me.btload.Text = "Load"
         Me.btload.UseVisualStyleBackColor = True
         '
@@ -93,7 +93,7 @@ Partial Class baocaovattu
         Me.dtpngay.Location = New System.Drawing.Point(239, 14)
         Me.dtpngay.Name = "dtpngay"
         Me.dtpngay.Size = New System.Drawing.Size(257, 44)
-        Me.dtpngay.TabIndex = 2
+        Me.dtpngay.TabIndex = 3
         '
         'Label2
         '

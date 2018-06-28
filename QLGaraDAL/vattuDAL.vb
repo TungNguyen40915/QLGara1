@@ -45,7 +45,7 @@ Public Class vattuDAL
         Return New Result(True) ' thanh cong
     End Function
 
-    Public Function select_Bymavt(id As String, ByRef x As vattuDTO) As Result
+    Public Function select_Bymavt(id As Integer, ByRef x As vattuDTO) As Result
 
         Dim query As String = String.Empty
         query &= " SELECT [mavattu], [tenvattu],[dongia],[tonkho] "
@@ -143,6 +143,39 @@ Public Class vattuDAL
                     .Parameters.AddWithValue("@tenvattu", vt.tenvattu)
                     .Parameters.AddWithValue("@dongia", vt.dongia)
                     .Parameters.AddWithValue("@luongton", vt.soluong)
+                End With
+                Try
+                    conn.Open()
+                    comm.ExecuteNonQuery()
+                Catch ex As Exception
+                    Console.WriteLine(ex.StackTrace)
+                    conn.Close()
+                    System.Console.WriteLine(ex.StackTrace)
+                    Return New Result(False, "Cập nhật Vật Tư không thành công", ex.StackTrace)
+                End Try
+            End Using
+        End Using
+        Return New Result(True) ' thanh cong
+    End Function
+
+
+    Public Function update_slton(id As string, lt As Integer ) As Result
+
+        Dim query As String = String.Empty
+        query &= " UPDATE [tblVatTu] SET  "
+        query &= "   [tonkho] =[tonkho] - @tonkho   "
+        query &= "    WHERE  "
+        query &= "   [mavattu] = @mavattu   "
+
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@mavattu", id)
+
+                    .Parameters.AddWithValue("@tonkho", lt)
                 End With
                 Try
                     conn.Open()

@@ -1,1 +1,1 @@
-SQLCMD -S DESKTOP-F4PFVVV -E -i CreateDB.sql
+SQLCMD -S DESKTOP-2C2OF6D -E -i CreateDB.sql

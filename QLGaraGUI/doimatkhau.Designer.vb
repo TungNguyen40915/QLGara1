@@ -39,11 +39,10 @@ Partial Class doimatkhau
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(303, 237)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button1.Location = New System.Drawing.Point(454, 365)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(176, 28)
-        Me.Button1.TabIndex = 7
+        Me.Button1.Size = New System.Drawing.Size(264, 43)
+        Me.Button1.TabIndex = 3
         Me.Button1.Text = "Đổi Mật Khẩu"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -51,30 +50,27 @@ Partial Class doimatkhau
         '
         Me.Panel3.Controls.Add(Me.tbxnmk)
         Me.Panel3.Controls.Add(Me.Label3)
-        Me.Panel3.Location = New System.Drawing.Point(35, 159)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel3.Location = New System.Drawing.Point(52, 245)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(554, 65)
+        Me.Panel3.Size = New System.Drawing.Size(831, 100)
         Me.Panel3.TabIndex = 5
         '
         'tbxnmk
         '
         Me.tbxnmk.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.tbxnmk.Location = New System.Drawing.Point(227, 20)
-        Me.tbxnmk.Margin = New System.Windows.Forms.Padding(2)
+        Me.tbxnmk.Location = New System.Drawing.Point(340, 31)
         Me.tbxnmk.Name = "tbxnmk"
         Me.tbxnmk.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.tbxnmk.Size = New System.Drawing.Size(294, 26)
-        Me.tbxnmk.TabIndex = 1
+        Me.tbxnmk.Size = New System.Drawing.Size(439, 35)
+        Me.tbxnmk.TabIndex = 2
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label3.Location = New System.Drawing.Point(25, 24)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label3.Location = New System.Drawing.Point(38, 37)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(183, 20)
+        Me.Label3.Size = New System.Drawing.Size(277, 29)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Mật Khẩu Mới (Nhập Lại)"
         '
@@ -82,30 +78,27 @@ Partial Class doimatkhau
         '
         Me.Panel2.Controls.Add(Me.tbmkm)
         Me.Panel2.Controls.Add(Me.Label2)
-        Me.Panel2.Location = New System.Drawing.Point(35, 90)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel2.Location = New System.Drawing.Point(52, 138)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(554, 65)
+        Me.Panel2.Size = New System.Drawing.Size(831, 100)
         Me.Panel2.TabIndex = 6
         '
         'tbmkm
         '
         Me.tbmkm.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.tbmkm.Location = New System.Drawing.Point(227, 24)
-        Me.tbmkm.Margin = New System.Windows.Forms.Padding(2)
+        Me.tbmkm.Location = New System.Drawing.Point(340, 37)
         Me.tbmkm.Name = "tbmkm"
         Me.tbmkm.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.tbmkm.Size = New System.Drawing.Size(294, 26)
+        Me.tbmkm.Size = New System.Drawing.Size(439, 35)
         Me.tbmkm.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label2.Location = New System.Drawing.Point(25, 24)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Location = New System.Drawing.Point(38, 37)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(106, 20)
+        Me.Label2.Size = New System.Drawing.Size(159, 29)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Mật Khẩu Mới"
         '
@@ -113,42 +106,40 @@ Partial Class doimatkhau
         '
         Me.Panel1.Controls.Add(Me.tbmkht)
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Location = New System.Drawing.Point(35, 21)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel1.Location = New System.Drawing.Point(52, 32)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(554, 65)
+        Me.Panel1.Size = New System.Drawing.Size(831, 100)
         Me.Panel1.TabIndex = 4
         '
         'tbmkht
         '
         Me.tbmkht.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.tbmkht.Location = New System.Drawing.Point(227, 22)
-        Me.tbmkht.Margin = New System.Windows.Forms.Padding(2)
+        Me.tbmkht.Location = New System.Drawing.Point(340, 34)
         Me.tbmkht.Name = "tbmkht"
         Me.tbmkht.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.tbmkht.Size = New System.Drawing.Size(294, 26)
-        Me.tbmkht.TabIndex = 1
+        Me.tbmkht.Size = New System.Drawing.Size(439, 35)
+        Me.tbmkht.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label1.Location = New System.Drawing.Point(25, 24)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(38, 37)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(139, 20)
+        Me.Label1.Size = New System.Drawing.Size(210, 29)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Mật Khẩu Hiện Tại"
         '
         'doimatkhau
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(623, 283)
+        Me.ClientSize = New System.Drawing.Size(934, 435)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "doimatkhau"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Đổi mật khẩu"

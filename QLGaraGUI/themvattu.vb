@@ -84,4 +84,9 @@ Public Class themvattu
             btluu.Enabled = False
         End If
     End Sub
+
+    Private Sub tbdongia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbdongia.KeyPress
+        Dim mK As Integer = Asc(e.KeyChar)
+        e.Handled = Not ((mK >= 48 And mK <= 57) Or mK = 8)
+    End Sub
 End Class

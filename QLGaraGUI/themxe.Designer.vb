@@ -63,7 +63,7 @@ Partial Class themxe
         Me.tbbienso.Location = New System.Drawing.Point(319, 12)
         Me.tbbienso.Name = "tbbienso"
         Me.tbbienso.Size = New System.Drawing.Size(605, 44)
-        Me.tbbienso.TabIndex = 1
+        Me.tbbienso.TabIndex = 0
         '
         'Label1
         '

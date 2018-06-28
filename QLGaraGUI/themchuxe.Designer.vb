@@ -77,7 +77,7 @@ Partial Class themchuxe
         Me.tbdienthoai.Location = New System.Drawing.Point(230, 6)
         Me.tbdienthoai.Name = "tbdienthoai"
         Me.tbdienthoai.Size = New System.Drawing.Size(519, 44)
-        Me.tbdienthoai.TabIndex = 1
+        Me.tbdienthoai.TabIndex = 2
         '
         'Label4
         '
@@ -115,7 +115,7 @@ Partial Class themchuxe
         Me.tbtienno.Location = New System.Drawing.Point(230, 6)
         Me.tbtienno.Name = "tbtienno"
         Me.tbtienno.Size = New System.Drawing.Size(396, 44)
-        Me.tbtienno.TabIndex = 1
+        Me.tbtienno.TabIndex = 3
         '
         'labeltienno
         '
@@ -169,7 +169,7 @@ Partial Class themchuxe
         Me.tbtenchuxe.Location = New System.Drawing.Point(230, 6)
         Me.tbtenchuxe.Name = "tbtenchuxe"
         Me.tbtenchuxe.Size = New System.Drawing.Size(519, 44)
-        Me.tbtenchuxe.TabIndex = 1
+        Me.tbtenchuxe.TabIndex = 0
         '
         'Label2
         '
@@ -215,7 +215,7 @@ Partial Class themchuxe
         Me.btluu.Location = New System.Drawing.Point(67, 428)
         Me.btluu.Name = "btluu"
         Me.btluu.Size = New System.Drawing.Size(169, 59)
-        Me.btluu.TabIndex = 1
+        Me.btluu.TabIndex = 4
         Me.btluu.Text = "Lưu"
         Me.btluu.UseVisualStyleBackColor = True
         '
@@ -225,7 +225,7 @@ Partial Class themchuxe
         Me.btnhaplai.Location = New System.Drawing.Point(306, 428)
         Me.btnhaplai.Name = "btnhaplai"
         Me.btnhaplai.Size = New System.Drawing.Size(169, 59)
-        Me.btnhaplai.TabIndex = 2
+        Me.btnhaplai.TabIndex = 5
         Me.btnhaplai.Text = "Nhập Lại"
         Me.btnhaplai.UseVisualStyleBackColor = True
         '
@@ -235,7 +235,7 @@ Partial Class themchuxe
         Me.btthoat.Location = New System.Drawing.Point(532, 428)
         Me.btthoat.Name = "btthoat"
         Me.btthoat.Size = New System.Drawing.Size(169, 59)
-        Me.btthoat.TabIndex = 3
+        Me.btthoat.TabIndex = 6
         Me.btthoat.Text = "Thoát"
         Me.btthoat.UseVisualStyleBackColor = True
         '

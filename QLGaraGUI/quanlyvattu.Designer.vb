@@ -53,113 +53,102 @@ Partial Class quanlyvattu
         Me.PanelCapnhat.Controls.Add(Me.btcapnhat)
         Me.PanelCapnhat.Controls.Add(Me.tbmavattu)
         Me.PanelCapnhat.Controls.Add(Me.Label2)
-        Me.PanelCapnhat.Location = New System.Drawing.Point(16, 261)
-        Me.PanelCapnhat.Margin = New System.Windows.Forms.Padding(2)
+        Me.PanelCapnhat.Location = New System.Drawing.Point(24, 402)
         Me.PanelCapnhat.Name = "PanelCapnhat"
-        Me.PanelCapnhat.Size = New System.Drawing.Size(370, 193)
+        Me.PanelCapnhat.Size = New System.Drawing.Size(555, 297)
         Me.PanelCapnhat.TabIndex = 11
         '
         'tbluongton
         '
         Me.tbluongton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.tbluongton.Location = New System.Drawing.Point(116, 104)
-        Me.tbluongton.Margin = New System.Windows.Forms.Padding(2)
+        Me.tbluongton.Location = New System.Drawing.Point(174, 160)
         Me.tbluongton.Name = "tbluongton"
-        Me.tbluongton.Size = New System.Drawing.Size(220, 26)
-        Me.tbluongton.TabIndex = 8
+        Me.tbluongton.Size = New System.Drawing.Size(328, 35)
+        Me.tbluongton.TabIndex = 4
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label5.Location = New System.Drawing.Point(12, 108)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label5.Location = New System.Drawing.Point(18, 166)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(85, 20)
+        Me.Label5.Size = New System.Drawing.Size(129, 29)
         Me.Label5.TabIndex = 7
         Me.Label5.Text = "Lượng Tồn"
         '
         'tbdongia
         '
         Me.tbdongia.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.tbdongia.Location = New System.Drawing.Point(116, 71)
-        Me.tbdongia.Margin = New System.Windows.Forms.Padding(2)
+        Me.tbdongia.Location = New System.Drawing.Point(174, 109)
         Me.tbdongia.Name = "tbdongia"
-        Me.tbdongia.Size = New System.Drawing.Size(220, 26)
-        Me.tbdongia.TabIndex = 6
+        Me.tbdongia.Size = New System.Drawing.Size(328, 35)
+        Me.tbdongia.TabIndex = 3
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label4.Location = New System.Drawing.Point(12, 75)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label4.Location = New System.Drawing.Point(18, 115)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(64, 20)
+        Me.Label4.Size = New System.Drawing.Size(96, 29)
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "Đơn giá"
         '
         'tbtenvattu
         '
         Me.tbtenvattu.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.tbtenvattu.Location = New System.Drawing.Point(116, 42)
-        Me.tbtenvattu.Margin = New System.Windows.Forms.Padding(2)
+        Me.tbtenvattu.Location = New System.Drawing.Point(174, 65)
         Me.tbtenvattu.Name = "tbtenvattu"
-        Me.tbtenvattu.Size = New System.Drawing.Size(220, 26)
-        Me.tbtenvattu.TabIndex = 4
+        Me.tbtenvattu.Size = New System.Drawing.Size(328, 35)
+        Me.tbtenvattu.TabIndex = 2
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label3.Location = New System.Drawing.Point(12, 46)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label3.Location = New System.Drawing.Point(18, 71)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(79, 20)
+        Me.Label3.Size = New System.Drawing.Size(117, 29)
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Tên vật tư"
         '
         'btcapnhat
         '
         Me.btcapnhat.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.btcapnhat.Location = New System.Drawing.Point(165, 137)
-        Me.btcapnhat.Margin = New System.Windows.Forms.Padding(2)
+        Me.btcapnhat.Location = New System.Drawing.Point(248, 211)
         Me.btcapnhat.Name = "btcapnhat"
-        Me.btcapnhat.Size = New System.Drawing.Size(117, 37)
-        Me.btcapnhat.TabIndex = 2
+        Me.btcapnhat.Size = New System.Drawing.Size(176, 57)
+        Me.btcapnhat.TabIndex = 5
         Me.btcapnhat.Text = "Cập Nhật"
         Me.btcapnhat.UseVisualStyleBackColor = True
         '
         'tbmavattu
         '
         Me.tbmavattu.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.tbmavattu.Location = New System.Drawing.Point(116, 11)
-        Me.tbmavattu.Margin = New System.Windows.Forms.Padding(2)
+        Me.tbmavattu.Location = New System.Drawing.Point(174, 17)
         Me.tbmavattu.Name = "tbmavattu"
         Me.tbmavattu.ReadOnly = True
-        Me.tbmavattu.Size = New System.Drawing.Size(220, 26)
+        Me.tbmavattu.Size = New System.Drawing.Size(328, 35)
         Me.tbmavattu.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label2.Location = New System.Drawing.Point(12, 15)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Location = New System.Drawing.Point(18, 23)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(74, 20)
+        Me.Label2.Size = New System.Drawing.Size(107, 29)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Mã vật tư"
         '
         'dgv
         '
         Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv.Location = New System.Drawing.Point(11, 92)
-        Me.dgv.Margin = New System.Windows.Forms.Padding(2)
+        Me.dgv.Location = New System.Drawing.Point(16, 142)
         Me.dgv.Name = "dgv"
         Me.dgv.RowTemplate.Height = 28
         Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgv.Size = New System.Drawing.Size(375, 166)
+        Me.dgv.Size = New System.Drawing.Size(562, 255)
         Me.dgv.TabIndex = 10
         '
         'Panel1
@@ -167,51 +156,48 @@ Partial Class quanlyvattu
         Me.Panel1.Controls.Add(Me.bttim)
         Me.Panel1.Controls.Add(Me.tbtimkiem)
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Location = New System.Drawing.Point(11, 11)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel1.Location = New System.Drawing.Point(16, 17)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(375, 77)
+        Me.Panel1.Size = New System.Drawing.Size(562, 118)
         Me.Panel1.TabIndex = 9
         '
         'bttim
         '
         Me.bttim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.bttim.Location = New System.Drawing.Point(293, 11)
-        Me.bttim.Margin = New System.Windows.Forms.Padding(2)
+        Me.bttim.Location = New System.Drawing.Point(440, 17)
         Me.bttim.Name = "bttim"
-        Me.bttim.Size = New System.Drawing.Size(74, 23)
-        Me.bttim.TabIndex = 2
+        Me.bttim.Size = New System.Drawing.Size(111, 35)
+        Me.bttim.TabIndex = 1
         Me.bttim.Text = "Tìm"
         Me.bttim.UseVisualStyleBackColor = True
         '
         'tbtimkiem
         '
         Me.tbtimkiem.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.tbtimkiem.Location = New System.Drawing.Point(5, 11)
-        Me.tbtimkiem.Margin = New System.Windows.Forms.Padding(2)
+        Me.tbtimkiem.Location = New System.Drawing.Point(8, 17)
         Me.tbtimkiem.Name = "tbtimkiem"
-        Me.tbtimkiem.Size = New System.Drawing.Size(283, 26)
-        Me.tbtimkiem.TabIndex = 1
+        Me.tbtimkiem.Size = New System.Drawing.Size(422, 35)
+        Me.tbtimkiem.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label1.Location = New System.Drawing.Point(29, 42)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(44, 65)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(211, 20)
+        Me.Label1.Size = New System.Drawing.Size(311, 29)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Nhập thông tin vật tư cần tìm"
         '
         'quanlyvattu
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(409, 468)
+        Me.ClientSize = New System.Drawing.Size(614, 720)
         Me.Controls.Add(Me.PanelCapnhat)
         Me.Controls.Add(Me.dgv)
         Me.Controls.Add(Me.Panel1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "quanlyvattu"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Quản Lý Vật Tư"

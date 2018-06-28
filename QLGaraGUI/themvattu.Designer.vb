@@ -91,7 +91,7 @@ Partial Class themvattu
         Me.tbtenvattu.Location = New System.Drawing.Point(294, 16)
         Me.tbtenvattu.Name = "tbtenvattu"
         Me.tbtenvattu.Size = New System.Drawing.Size(306, 39)
-        Me.tbtenvattu.TabIndex = 1
+        Me.tbtenvattu.TabIndex = 0
         '
         'Label2
         '
@@ -136,7 +136,7 @@ Partial Class themvattu
         Me.btluu.Location = New System.Drawing.Point(274, 270)
         Me.btluu.Name = "btluu"
         Me.btluu.Size = New System.Drawing.Size(135, 47)
-        Me.btluu.TabIndex = 1
+        Me.btluu.TabIndex = 2
         Me.btluu.Text = "Lưu"
         Me.btluu.UseVisualStyleBackColor = True
         '

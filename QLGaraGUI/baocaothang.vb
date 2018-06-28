@@ -90,36 +90,27 @@ Public Class baocaothang
     End Sub
 
     Private Sub btload_Click(sender As Object, e As EventArgs) Handles btload.Click
-
-        Dim a As Integer
         Dim result As Result
-        result = bcBus.select_bymabaocao(tbmabaocao.Text, a)
-        If (a = 1) Then
-
-        Else
-
-            '   Dim result As Result
-            Dim tongluot As Integer
-            tongluot = 0
-            result = pscBus.selectPhieuSC_bydate(dtpngay.Value, tongluot)
-            If (result.FlagResult = True) Then
-                result = pscBus.selectPhieuSC_BC1(dtpngay.Value, tongluot, list)
-                If (result.FlagResult = False) Then
-                    MessageBox.Show("Đã có lỗi xảy ra", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Else
-                    builddgv(list)
-                    Dim tongtrigia As Integer
-                    tongtrigia = 0
-                    For Each item In list
-                        tongtrigia += item.thanhtien
-
-                    Next
-                    tbdoanhthu.Text = tongtrigia.ToString()
-                End If
-            Else
+        Dim tongluot As Integer
+        tongluot = 0
+        result = pscBus.selectPhieuSC_bydate(dtpngay.Value, tongluot)
+        If (result.FlagResult = True) Then
+            result = pscBus.selectPhieuSC_BC1(dtpngay.Value, tongluot, list)
+            If (result.FlagResult = False) Then
                 MessageBox.Show("Đã có lỗi xảy ra", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                builddgv(list)
+                Dim tongtrigia As Integer
+                tongtrigia = 0
+                For Each item In list
+                    tongtrigia += item.thanhtien
+                Next
+                tbdoanhthu.Text = tongtrigia.ToString()
             End If
+        Else
+            MessageBox.Show("Đã có lỗi xảy ra", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
+        ' End If
     End Sub
 
     Private Sub btluu_Click(sender As Object, e As EventArgs) Handles btluu.Click

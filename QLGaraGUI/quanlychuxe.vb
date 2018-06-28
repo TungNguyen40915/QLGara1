@@ -146,4 +146,9 @@ Thoat:      i += 1
 
         End If
     End Sub
+
+    Private Sub tbdienthoai_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbdienthoai.KeyPress
+        Dim mK As Integer = Asc(e.KeyChar)
+        e.Handled = Not ((mK >= 48 And mK <= 57) Or mK = 8)
+    End Sub
 End Class

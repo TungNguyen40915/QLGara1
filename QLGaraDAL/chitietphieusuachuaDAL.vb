@@ -18,7 +18,7 @@ Public Class chitietphieusuachuaDAL
 
         Dim query As String = String.Empty
         query &= "INSERT INTO [tblCTPSC] ([machitiet],[maphieu], [mavattu],[noidung],[soluong],[dongia],[tiencong],[thanhtien])"
-        query &= "VALUES (@maphieu,@mavattu,@noidung,@soluong,@dongia,@tiencong,@thanhtien)"
+        query &= "VALUES (@machitiet,@maphieu,@mavattu,@noidung,@soluong,@dongia,@tiencong,@thanhtien)"
 
 
         Using conn As New SqlConnection(connectionString)
@@ -30,7 +30,7 @@ Public Class chitietphieusuachuaDAL
                     .Parameters.AddWithValue("@machitiet", ct.machitiet)
                     .Parameters.AddWithValue("@maphieu", ct.Maphieu)
                     .Parameters.AddWithValue("@mavattu", ct.mavattu)
-                    .Parameters.AddWithValue("@manoidung", ct.noidung)
+                    .Parameters.AddWithValue("@noidung", ct.noidung)
                     .Parameters.AddWithValue("@soluong", ct.soluong)
                     .Parameters.AddWithValue("@dongia", ct.dongia)
                     .Parameters.AddWithValue("@tiencong", ct.tiencong)

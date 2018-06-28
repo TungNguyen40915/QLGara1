@@ -53,102 +53,113 @@ Partial Class quanlychuxe
         Me.PanelCapnhat.Controls.Add(Me.btcapnhat)
         Me.PanelCapnhat.Controls.Add(Me.tbmachuxe)
         Me.PanelCapnhat.Controls.Add(Me.Label2)
-        Me.PanelCapnhat.Location = New System.Drawing.Point(20, 370)
+        Me.PanelCapnhat.Location = New System.Drawing.Point(30, 569)
+        Me.PanelCapnhat.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PanelCapnhat.Name = "PanelCapnhat"
-        Me.PanelCapnhat.Size = New System.Drawing.Size(555, 211)
+        Me.PanelCapnhat.Size = New System.Drawing.Size(832, 325)
         Me.PanelCapnhat.TabIndex = 8
         '
         'tbdienthoai
         '
         Me.tbdienthoai.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.tbdienthoai.Location = New System.Drawing.Point(174, 113)
+        Me.tbdienthoai.Location = New System.Drawing.Point(261, 174)
+        Me.tbdienthoai.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.tbdienthoai.Name = "tbdienthoai"
-        Me.tbdienthoai.Size = New System.Drawing.Size(328, 26)
-        Me.tbdienthoai.TabIndex = 8
+        Me.tbdienthoai.Size = New System.Drawing.Size(490, 35)
+        Me.tbdienthoai.TabIndex = 3
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label5.Location = New System.Drawing.Point(18, 119)
+        Me.Label5.Location = New System.Drawing.Point(27, 183)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(85, 20)
+        Me.Label5.Size = New System.Drawing.Size(131, 29)
         Me.Label5.TabIndex = 7
         Me.Label5.Text = "Điện Thoại"
         '
         'tbdiachi
         '
         Me.tbdiachi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.tbdiachi.Location = New System.Drawing.Point(174, 81)
+        Me.tbdiachi.Location = New System.Drawing.Point(261, 125)
+        Me.tbdiachi.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.tbdiachi.Name = "tbdiachi"
-        Me.tbdiachi.Size = New System.Drawing.Size(328, 26)
-        Me.tbdiachi.TabIndex = 6
+        Me.tbdiachi.Size = New System.Drawing.Size(490, 35)
+        Me.tbdiachi.TabIndex = 2
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label4.Location = New System.Drawing.Point(18, 87)
+        Me.Label4.Location = New System.Drawing.Point(27, 134)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(60, 20)
+        Me.Label4.Size = New System.Drawing.Size(91, 29)
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "Địa Chỉ"
         '
         'tbtenchuxe
         '
         Me.tbtenchuxe.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.tbtenchuxe.Location = New System.Drawing.Point(174, 49)
+        Me.tbtenchuxe.Location = New System.Drawing.Point(261, 75)
+        Me.tbtenchuxe.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.tbtenchuxe.Name = "tbtenchuxe"
-        Me.tbtenchuxe.Size = New System.Drawing.Size(328, 26)
-        Me.tbtenchuxe.TabIndex = 4
+        Me.tbtenchuxe.Size = New System.Drawing.Size(490, 35)
+        Me.tbtenchuxe.TabIndex = 1
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label3.Location = New System.Drawing.Point(18, 55)
+        Me.Label3.Location = New System.Drawing.Point(27, 85)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(86, 20)
+        Me.Label3.Size = New System.Drawing.Size(131, 29)
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Tên chủ xe"
         '
         'btcapnhat
         '
         Me.btcapnhat.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.btcapnhat.Location = New System.Drawing.Point(259, 148)
+        Me.btcapnhat.Location = New System.Drawing.Point(388, 228)
+        Me.btcapnhat.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btcapnhat.Name = "btcapnhat"
-        Me.btcapnhat.Size = New System.Drawing.Size(176, 57)
-        Me.btcapnhat.TabIndex = 2
+        Me.btcapnhat.Size = New System.Drawing.Size(264, 88)
+        Me.btcapnhat.TabIndex = 4
         Me.btcapnhat.Text = "Cập Nhật"
         Me.btcapnhat.UseVisualStyleBackColor = True
         '
         'tbmachuxe
         '
         Me.tbmachuxe.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.tbmachuxe.Location = New System.Drawing.Point(174, 17)
+        Me.tbmachuxe.Location = New System.Drawing.Point(261, 26)
+        Me.tbmachuxe.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.tbmachuxe.Name = "tbmachuxe"
         Me.tbmachuxe.ReadOnly = True
-        Me.tbmachuxe.Size = New System.Drawing.Size(328, 26)
+        Me.tbmachuxe.Size = New System.Drawing.Size(490, 35)
         Me.tbmachuxe.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label2.Location = New System.Drawing.Point(18, 23)
+        Me.Label2.Location = New System.Drawing.Point(27, 35)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(81, 20)
+        Me.Label2.Size = New System.Drawing.Size(121, 29)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Mã chủ xe"
         '
         'dgv
         '
         Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv.Location = New System.Drawing.Point(12, 118)
+        Me.dgv.Location = New System.Drawing.Point(18, 182)
+        Me.dgv.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.dgv.Name = "dgv"
         Me.dgv.RowTemplate.Height = 28
         Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgv.Size = New System.Drawing.Size(563, 246)
+        Me.dgv.Size = New System.Drawing.Size(844, 378)
         Me.dgv.TabIndex = 7
         '
         'Panel1
@@ -156,17 +167,19 @@ Partial Class quanlychuxe
         Me.Panel1.Controls.Add(Me.bttim)
         Me.Panel1.Controls.Add(Me.tbtimkiem)
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Location = New System.Drawing.Point(12, 14)
+        Me.Panel1.Location = New System.Drawing.Point(18, 22)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(563, 98)
+        Me.Panel1.Size = New System.Drawing.Size(844, 151)
         Me.Panel1.TabIndex = 6
         '
         'bttim
         '
         Me.bttim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.bttim.Location = New System.Drawing.Point(439, 17)
+        Me.bttim.Location = New System.Drawing.Point(658, 26)
+        Me.bttim.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.bttim.Name = "bttim"
-        Me.bttim.Size = New System.Drawing.Size(111, 35)
+        Me.bttim.Size = New System.Drawing.Size(166, 54)
         Me.bttim.TabIndex = 2
         Me.bttim.Text = "Tìm"
         Me.bttim.UseVisualStyleBackColor = True
@@ -174,30 +187,33 @@ Partial Class quanlychuxe
         'tbtimkiem
         '
         Me.tbtimkiem.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.tbtimkiem.Location = New System.Drawing.Point(8, 17)
+        Me.tbtimkiem.Location = New System.Drawing.Point(12, 26)
+        Me.tbtimkiem.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.tbtimkiem.Name = "tbtimkiem"
-        Me.tbtimkiem.Size = New System.Drawing.Size(423, 26)
-        Me.tbtimkiem.TabIndex = 1
+        Me.tbtimkiem.Size = New System.Drawing.Size(632, 35)
+        Me.tbtimkiem.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label1.Location = New System.Drawing.Point(43, 65)
+        Me.Label1.Location = New System.Drawing.Point(64, 100)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(218, 20)
+        Me.Label1.Size = New System.Drawing.Size(325, 29)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Nhập thông tin chủ xe cần tìm"
         '
         'quanlychuxe
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
-        Me.ClientSize = New System.Drawing.Size(596, 595)
+        Me.ClientSize = New System.Drawing.Size(894, 915)
         Me.Controls.Add(Me.PanelCapnhat)
         Me.Controls.Add(Me.dgv)
         Me.Controls.Add(Me.Panel1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "quanlychuxe"
         Me.Text = "Quản Lý Chủ Xe"
         Me.PanelCapnhat.ResumeLayout(False)

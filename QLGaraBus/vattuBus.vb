@@ -44,6 +44,13 @@ Public Class vattuBus
         Return vtDAL.update(vt)
     End Function
 
+    Public Function update_luongton(id As Integer, lt As Integer) As Result
+        '1. verify data here!!
+
+        '2. insert to DB
+        Return vtDAL.update_slton(id, lt)
+    End Function
+
     Public Function selectvattu_baocao(dt As DateTime, ByRef list As List(Of baocao2DTO)) As Result
         Return vtDAL.selectvattu_baocao(dt, list)
     End Function

@@ -23,8 +23,8 @@ Partial Class themhieuxe
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.tbmahieuxe = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.tbmahieuxe = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.tbtenhieuxe = New System.Windows.Forms.TextBox()
@@ -43,15 +43,6 @@ Partial Class themhieuxe
         Me.Panel1.Size = New System.Drawing.Size(901, 53)
         Me.Panel1.TabIndex = 0
         '
-        'tbmahieuxe
-        '
-        Me.tbmahieuxe.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbmahieuxe.Location = New System.Drawing.Point(241, 3)
-        Me.tbmahieuxe.Name = "tbmahieuxe"
-        Me.tbmahieuxe.ReadOnly = True
-        Me.tbmahieuxe.Size = New System.Drawing.Size(657, 44)
-        Me.tbmahieuxe.TabIndex = 0
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -61,6 +52,15 @@ Partial Class themhieuxe
         Me.Label1.Size = New System.Drawing.Size(181, 37)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Mã hiệu xe"
+        '
+        'tbmahieuxe
+        '
+        Me.tbmahieuxe.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbmahieuxe.Location = New System.Drawing.Point(241, 3)
+        Me.tbmahieuxe.Name = "tbmahieuxe"
+        Me.tbmahieuxe.ReadOnly = True
+        Me.tbmahieuxe.Size = New System.Drawing.Size(657, 44)
+        Me.tbmahieuxe.TabIndex = 0
         '
         'Panel2
         '
@@ -92,10 +92,10 @@ Partial Class themhieuxe
         'btluu
         '
         Me.btluu.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btluu.Location = New System.Drawing.Point(216, 217)
+        Me.btluu.Location = New System.Drawing.Point(224, 217)
         Me.btluu.Name = "btluu"
         Me.btluu.Size = New System.Drawing.Size(173, 59)
-        Me.btluu.TabIndex = 3
+        Me.btluu.TabIndex = 1
         Me.btluu.Text = "Lưu"
         Me.btluu.UseVisualStyleBackColor = True
         '
@@ -105,7 +105,7 @@ Partial Class themhieuxe
         Me.btthoat.Location = New System.Drawing.Point(436, 217)
         Me.btthoat.Name = "btthoat"
         Me.btthoat.Size = New System.Drawing.Size(173, 59)
-        Me.btthoat.TabIndex = 4
+        Me.btthoat.TabIndex = 2
         Me.btthoat.Text = "Thoát"
         Me.btthoat.UseVisualStyleBackColor = True
         '

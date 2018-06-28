@@ -59,7 +59,7 @@ Partial Class baocaothang
         Me.btload.Location = New System.Drawing.Point(261, 246)
         Me.btload.Name = "btload"
         Me.btload.Size = New System.Drawing.Size(196, 59)
-        Me.btload.TabIndex = 2
+        Me.btload.TabIndex = 0
         Me.btload.Text = "Load"
         Me.btload.UseVisualStyleBackColor = True
         '

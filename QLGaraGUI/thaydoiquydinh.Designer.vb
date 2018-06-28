@@ -31,42 +31,40 @@ Partial Class thaydoiquydinh
         'nudsongay
         '
         Me.nudsongay.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.nudsongay.Location = New System.Drawing.Point(298, 86)
-        Me.nudsongay.Margin = New System.Windows.Forms.Padding(2)
+        Me.nudsongay.Location = New System.Drawing.Point(447, 132)
         Me.nudsongay.Name = "nudsongay"
-        Me.nudsongay.Size = New System.Drawing.Size(67, 26)
-        Me.nudsongay.TabIndex = 5
+        Me.nudsongay.Size = New System.Drawing.Size(100, 35)
+        Me.nudsongay.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label1.Location = New System.Drawing.Point(63, 86)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(94, 132)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(229, 20)
+        Me.Label1.Size = New System.Drawing.Size(347, 29)
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Số lượng xe tiếp nhận mỗi ngày"
         '
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(176, 138)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button1.Location = New System.Drawing.Point(264, 212)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(129, 36)
-        Me.Button1.TabIndex = 3
+        Me.Button1.Size = New System.Drawing.Size(194, 55)
+        Me.Button1.TabIndex = 1
         Me.Button1.Text = "Cập Nhật"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'thaydoiquydinh
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(429, 261)
+        Me.ClientSize = New System.Drawing.Size(644, 402)
         Me.Controls.Add(Me.nudsongay)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "thaydoiquydinh"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Thay Đổi Quy Định"

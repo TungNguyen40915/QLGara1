@@ -75,7 +75,7 @@ Partial Class phieuthu
         Me.tbtongtien.Location = New System.Drawing.Point(249, 11)
         Me.tbtongtien.Name = "tbtongtien"
         Me.tbtongtien.Size = New System.Drawing.Size(445, 39)
-        Me.tbtongtien.TabIndex = 1
+        Me.tbtongtien.TabIndex = 2
         '
         'Label6
         '
@@ -158,7 +158,7 @@ Partial Class phieuthu
         Me.tbbiensoxe.Location = New System.Drawing.Point(249, 4)
         Me.tbbiensoxe.Name = "tbbiensoxe"
         Me.tbbiensoxe.Size = New System.Drawing.Size(445, 39)
-        Me.tbbiensoxe.TabIndex = 1
+        Me.tbbiensoxe.TabIndex = 0
         '
         'Label2
         '
@@ -204,7 +204,7 @@ Partial Class phieuthu
         Me.btluu.Location = New System.Drawing.Point(173, 387)
         Me.btluu.Name = "btluu"
         Me.btluu.Size = New System.Drawing.Size(127, 89)
-        Me.btluu.TabIndex = 1
+        Me.btluu.TabIndex = 3
         Me.btluu.Text = "Lưu"
         Me.btluu.UseVisualStyleBackColor = True
         '
