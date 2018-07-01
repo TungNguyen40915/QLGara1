@@ -281,6 +281,7 @@ Partial Class quanlynhapxe
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(1306, 775)
         Me.Controls.Add(Me.locketqua)
         Me.Controls.Add(Me.dgv)

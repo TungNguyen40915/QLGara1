@@ -110,4 +110,12 @@ Public Class phieuthu
         Dim mK As Integer = Asc(e.KeyChar)
         e.Handled = Not ((mK >= 48 And mK <= 57) Or mK = 8)
     End Sub
+
+    Private Sub tbbiensoxe_Leave(sender As Object, e As EventArgs) Handles tbbiensoxe.Leave
+        Dim a = String.Empty
+        For Each item As Char In tbbiensoxe.Text
+            a += UCase(item)
+        Next
+        tbbiensoxe.Text = a
+    End Sub
 End Class

@@ -219,4 +219,12 @@ Public Class themxe
             cbbtenhieuxe.Text = a.Tenhieuxe
         End If
     End Sub
+
+    Private Sub tbbienso_Leave(sender As Object, e As EventArgs) Handles tbbienso.Leave
+        Dim a = String.Empty
+        For Each item As Char In tbbienso.Text
+            a += UCase(item)
+        Next
+        tbbienso.Text = a
+    End Sub
 End Class

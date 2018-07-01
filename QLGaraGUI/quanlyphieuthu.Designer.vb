@@ -75,6 +75,7 @@ Partial Class quanlyphieuthu
         Me.dgv.Location = New System.Drawing.Point(16, 152)
         Me.dgv.Name = "dgv"
         Me.dgv.RowTemplate.Height = 28
+        Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgv.Size = New System.Drawing.Size(922, 340)
         Me.dgv.TabIndex = 8
         '

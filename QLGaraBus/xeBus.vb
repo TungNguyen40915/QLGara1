@@ -68,7 +68,7 @@ Public Class xeBus
         Return xDAL.delete(bienso)
     End Function
 
-    Public Function CheckAndStandardization(x As xeDTO) As Boolean
+    Public Function CheckAndStandardization(ByRef x As xeDTO) As Boolean
         If x.Bienso.Length = 0 Then
             Return False
         End If

@@ -171,6 +171,8 @@ Public Class tiepnhanxe
 
                 loadHieuXeByMahieuxe(a.Mahieuxe.ToString(), b)
                 tbhieuxe.Text = b.Tenhieuxe
+                xBus.CheckAndStandardization(a)
+                tbbiensoxe.Text = a.Bienso
             End If
         End If
     End Sub

@@ -75,6 +75,8 @@ Public Class lapphieusuachua
             Dim c = New chuxeDTO()
             result = cxBus.select_ByMachuxe(a.Machuxe, c)
             tbchuxe.Text = c.Tenchuxe
+            xBus.CheckAndStandardization(a)
+            tbbienso.Text = a.Bienso
             Return True
         End If
         Return False
@@ -175,7 +177,7 @@ Public Class lapphieusuachua
             listhienthi.Add(New suachuaDTO(tbnoidung.Text, vt.mavattu, vt.tenvattu, nudsoluong.Value, vt.dongia, Convert.ToInt32(tbtiencong.Text), vt.dongia * nudsoluong.Value + Convert.ToInt32(tbtiencong.Text)))
             buildgv(listhienthi)
             tongtrigia += tt
-            tbtongtien.Text = tongtrigia
+            tbtongtien.Text = tongtrigia.ToString
         Else
             MessageBox.Show("Vui lòng nhập tiền công sửa chữa ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
@@ -193,8 +195,10 @@ Public Class lapphieusuachua
             Try
 
                 Dim suachua = CType(dgv.Rows(currentRowIndex).DataBoundItem, suachuaDTO)
+
                 Dim tt = Convert.ToInt32(tbtongtien.Text)
                 tt -= suachua.tongtien
+                tongtrigia = tt
                 tbtongtien.Text = tt.ToString()
                 listhienthi.Remove(suachua)
                 buildgv(listhienthi)
@@ -278,6 +282,7 @@ Public Class lapphieusuachua
     End Function
     Private Sub tbbienso_Leave(sender As Object, e As EventArgs) Handles tbbienso.Leave
         loadthongtinxe()
+
     End Sub
 
     Private Sub tbtiencong_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbtiencong.KeyPress

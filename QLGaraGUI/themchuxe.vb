@@ -146,4 +146,9 @@ Public Class themchuxe
         cxBus.CheckAndStandardizationName(cx)
         tbtenchuxe.Text = cx.Tenchuxe
     End Sub
+
+    Private Sub tbtenchuxe_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbtenchuxe.KeyPress
+        Dim mK As Integer = Asc(e.KeyChar)
+        e.Handled = ((mK >= 48 And mK <= 57) Or mK = 8)
+    End Sub
 End Class

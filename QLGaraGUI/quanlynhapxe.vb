@@ -21,7 +21,12 @@ Public Class quanlynhapxe
                 Dim ptn = CType(dgv.Rows(currentRowIndex).DataBoundItem, tiepnhanxeDTO)
                 listphieu.Remove(ptn)
                 listphieuload.Remove(ptn)
-                buildgv(listphieu)
+                If (tbtimkiem.Text = Nothing) Then
+                    buildgv(listphieuload)
+                Else
+                    buildgv(listphieu)
+                End If
+
                 MessageBox.Show("Đã xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             Else
@@ -42,7 +47,6 @@ Public Class quanlynhapxe
         loadlistphieutiepnhan()
 
         buildgv(listphieuload)
-        pnthongtin.Visible = False
     End Sub
 
     Private Function loadlistphieutiepnhan() As Boolean
@@ -162,11 +166,11 @@ Thoat:      i += 1
         Return True
     End Function
 
-    Private Sub dgv_DataSourceChanged(sender As Object, e As EventArgs) Handles dgv.DataSourceChanged
-        If (listphieu.Count = 0) Then
-            pnthongtin.Visible = False
+    Private Sub tbmatn_TextChanged(sender As Object, e As EventArgs) Handles tbmatn.TextChanged
+        If (tbbienso.Text <> Nothing) Then
+            btxoa.Enabled = True
         Else
-            pnthongtin.Visible = True
+            btxoa.Enabled = False
         End If
     End Sub
 End Class

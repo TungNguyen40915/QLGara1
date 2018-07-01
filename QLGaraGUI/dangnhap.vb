@@ -12,6 +12,9 @@ Public Class dangnhap
 
         btdangnhap.Enabled = False
         lbloi.Visible = False
+
+        tbtaikhoan.Text = "16521125"
+        tbmatkhau.Text = "20182018"
     End Sub
 
     Private Sub btdangnhap_Click(sender As Object, e As EventArgs) Handles btdangnhap.Click
