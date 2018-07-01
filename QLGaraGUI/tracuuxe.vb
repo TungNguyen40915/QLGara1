@@ -9,8 +9,6 @@ Public Class tracuuxe
     Private cxBus As chuxeBus
     Private hxBus As hieuxeBus
     Private listxe As List(Of xeDTO)
-    Private chuxegia As chuxeDTO
-    Private hieuxegia As hieuxeDTO
     Private listxetracuu As List(Of tracuuxeDTO)
     Private listxehienthi As List(Of tracuuxeDTO)
     Private tcBus As tracuuxeBus
@@ -33,7 +31,7 @@ Public Class tracuuxe
 
 
         Dim listchuxe = New List(Of chuxeDTO)
-        chuxegia = New chuxeDTO()
+
 
 
 
@@ -49,7 +47,6 @@ Public Class tracuuxe
         cbbtenchuxe1.ValueMember = "Machuxe"
 
 
-        hieuxegia = New hieuxeDTO
         Dim listhieuxe = New List(Of hieuxeDTO)
         result = hxBus.selectAll(listhieuxe)
         If (result.FlagResult = False) Then

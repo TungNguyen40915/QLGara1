@@ -138,6 +138,7 @@ Public Class tiepnhanxeDAL
 
 
         solan = 0
+
         query &= "SELECT COUNT ([matiepnhan])  AS [dem] "
         query &= "  FROM [tblTiepNhan] "
         query &= "  WHERE DAY([ngaytiepnhan])=@day "

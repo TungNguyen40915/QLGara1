@@ -18,6 +18,7 @@ Public Class chuxeDAL
     Public Function getNextID(ByRef nextID As String) As Result
 
         nextID = "CX"
+
         Dim query As String = String.Empty
         query &= "SELECT TOP 1 [machuxe] "
         query &= "FROM [tblChuXe] "
@@ -110,6 +111,7 @@ Public Class chuxeDAL
                 End With
                 Try
                     conn.Open()
+
                     Dim reader As SqlDataReader
                     reader = comm.ExecuteReader()
                     If reader.HasRows = True Then

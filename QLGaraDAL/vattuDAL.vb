@@ -345,6 +345,7 @@ Public Class vattuDAL
                             Else
                                 baocao2.tondau = reader("toncuoi")
                             End If
+
                             Dim suachua = 0
                             Dim nhapmoi = 0
 

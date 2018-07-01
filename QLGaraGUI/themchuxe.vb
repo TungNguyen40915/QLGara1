@@ -18,6 +18,7 @@ Public Class themchuxe
         Else
             MessageBox.Show("Lấy ID kế tiếp của Loại học sinh không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             System.Console.WriteLine(result.SystemMessage)
+            Me.Close()
         End If
 
         btluu.Enabled = False
@@ -45,7 +46,7 @@ Public Class themchuxe
             chx.Tienno = Convert.ToInt32(tbtienno.Text)
 
 
-            If (cxBus.CheckAndStandardizationName(chx) = False Or cxBus.isvalidAddress(chx) = False) Then
+            If (cxBus.CheckAndStandardizationName(chx) = False) Then
                 MessageBox.Show("Vui lòng kiểm tra lại thông tin chủ xe", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return
 
@@ -71,11 +72,13 @@ Public Class themchuxe
                 Else
                     MessageBox.Show("Lấy ID kế tiếp của chủ xe không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     System.Console.WriteLine(result.SystemMessage)
+                    Close()
                 End If
 
             Else
                 MessageBox.Show("Thêm chủ xe không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 System.Console.WriteLine(result.SystemMessage)
+                Close()
             End If
         Else
             MessageBox.Show("Vui lòng không để trống ô nào", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -106,7 +109,7 @@ Public Class themchuxe
         End If
     End Sub
 
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles tbtienno.TextChanged
+    Private Sub tbtienno_TextChanged(sender As Object, e As EventArgs) Handles tbtienno.TextChanged
         If (kiemtra() = False) Then
             btluu.Enabled = False
         Else

@@ -5,9 +5,10 @@ Imports Utility
 Public Class quanlynhapxe
     Private cxBus As chuxeBus
     Private xBus As xeBus
-    Private tnBus As tiepnhanxeBus
     Private hxBus As hieuxeBus
-    Private tsBus As thamsoBus
+
+    Private tnBus As tiepnhanxeBus
+
     Private listphieuload As List(Of tiepnhanxeDTO)
     Private listphieu As List(Of tiepnhanxeDTO)
 
@@ -35,7 +36,6 @@ Public Class quanlynhapxe
         xBus = New xeBus()
         tnBus = New tiepnhanxeBus()
         hxBus = New hieuxeBus()
-        tsBus = New thamsoBus()
         listphieuload = New List(Of tiepnhanxeDTO)
         listphieu = New List(Of tiepnhanxeDTO)
 
@@ -114,6 +114,7 @@ Public Class quanlynhapxe
                 tbbienso.Text = ptn.Bienso
                 tbmatn.Text = ptn.Matiepnhan
                 tbngaytiepnhan.Text = ptn.Ngaytiepnhan.ToString()
+
                 Dim x = New xeDTO()
                 Dim result As Result
                 result = xBus.select_Bybienso(ptn.Bienso, x)
@@ -132,7 +133,9 @@ Public Class quanlynhapxe
 
     Private Function tracuu() As Boolean
         Dim timkiem = tbtimkiem.Text
+
         listphieu.Clear()
+
         Dim i = 0
         Dim n As Integer
         n = listphieuload.Count

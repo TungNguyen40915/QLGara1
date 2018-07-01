@@ -37,7 +37,7 @@ Public Class chuxeBus
         Return cxDAL.update(cx)
     End Function
 
-    Public Function CheckAndStandardizationName(cx As chuxeDTO) As Boolean
+    Public Function CheckAndStandardizationName(ByRef cx As chuxeDTO) As Boolean
         If (cx.Tenchuxe.Length = 0) Then
             Return False
         End If
@@ -58,6 +58,7 @@ Public Class chuxeBus
         While (cx.Tenchuxe.IndexOf("  ")) > -1
             cx.Tenchuxe = cx.Tenchuxe.Replace("  ", " ")
         End While
+
         Dim mang() As String = Split(cx.Tenchuxe.ToString, " ")
         Dim t As String
         For i As Integer = 0 To UBound(mang)
@@ -81,7 +82,7 @@ Public Class chuxeBus
 
 
     Public Function isvalidNumberPhone(cx As chuxeDTO) As Boolean
-        If (cx.Dienthoai.ToString().Length < 9) Then
+        If (cx.Dienthoai.ToString().Length < 10) Then
             Return False
         End If
 

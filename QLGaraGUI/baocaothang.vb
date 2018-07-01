@@ -6,7 +6,9 @@ Public Class baocaothang
 
     Private bcBus As baocaothangBus
     Private ctbcBus As chitietbaocaothangBus
+
     Private pscBus As phieusuachuaBus
+
     Private list As List(Of baocao1DTO)
 
 
@@ -35,6 +37,7 @@ Public Class baocaothang
         Else
             MessageBox.Show("Lấy ID của báo cáo không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             System.Console.WriteLine(result.SystemMessage)
+            Me.Close()
         End If
         Return False
     End Function

@@ -13,6 +13,10 @@ Public Class quanlychuxe
         listtimkiem = New List(Of chuxeDTO)
 
         loadlistchuxe()
+        If (loadlistchuxe() = False) Then
+            MessageBox.Show("Lỗi", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Close()
+        End If
         buildgv(listchuxe)
         PanelCapnhat.Visible = False
     End Sub
@@ -114,20 +118,27 @@ Thoat:      i += 1
     End Sub
 
     Private Sub btcapnhat_Click(sender As Object, e As EventArgs) Handles btcapnhat.Click
+
         Dim chuxemoi = New chuxeDTO()
-        chuxemoi.Machuxe = tbmachuxe.Text
-        chuxemoi.Tenchuxe = tbtenchuxe.Text
-        chuxemoi.Diachi = tbdiachi.Text
-        chuxemoi.Dienthoai = Convert.ToInt32(tbdienthoai.Text)
-        Dim result As Result
-        result = cxBus.update(chuxemoi)
-        If (result.FlagResult = True) Then
-            MessageBox.Show("Đã cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            loadlistchuxe()
-            tracuu()
+            chuxemoi.Machuxe = tbmachuxe.Text
+            chuxemoi.Tenchuxe = tbtenchuxe.Text
+            chuxemoi.Diachi = tbdiachi.Text
+            chuxemoi.Dienthoai = Convert.ToInt32(tbdienthoai.Text)
+
+        If (cxBus.CheckAndStandardizationName(chuxemoi) And tbdiachi.Text <> Nothing And tbdienthoai.Text <> Nothing And tbtenchuxe.Text = Nothing) Then
+            Dim result As Result
+            result = cxBus.update(chuxemoi)
+            If (result.FlagResult = True) Then
+                MessageBox.Show("Đã cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                loadlistchuxe()
+                tracuu()
+            Else
+                MessageBox.Show("Đã xảy ra lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         Else
-            MessageBox.Show("Đã xảy ra lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Vui lòng kiểm tra lại thông tin chủ xe", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
+
     End Sub
 
     Private Sub dgv_SelectionChanged(sender As Object, e As EventArgs) Handles dgv.SelectionChanged

@@ -6,12 +6,17 @@ Public Class lapphieusuachua
 
     Private pscBus As phieusuachuaBus
     Private ctpscBus As chitietphieusuachuaBus
+
+
     Private cxBus As chuxeBus
     Private hxBus As hieuxeBus
     Private vtBus As vattuBus
     Private xBus As xeBus
+
+
     Private listhienthi As List(Of suachuaDTO)
     Private listvattu As List(Of vattuDTO)
+
     Private tongtrigia As Integer
     Private Sub lapphieusuachua_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         pscBus = New phieusuachuaBus()
@@ -40,7 +45,7 @@ Public Class lapphieusuachua
             MessageBox.Show("Không thể lấy danh sách vật tư", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Me.Close()
         End If
-
+        tbtiencong.Text = "0"
     End Sub
 
     Private Function loadID() As Boolean
@@ -75,7 +80,7 @@ Public Class lapphieusuachua
         Return False
     End Function
 
-    Private Sub dtpngaytiepnhan_ValueChanged(sender As Object, e As EventArgs)
+    Private Sub dtpngaytiepnhan_ValueChanged(sender As Object, e As EventArgs) Handles dtpngaytiepnhan.ValueChanged
         loadID()
     End Sub
 
@@ -163,7 +168,7 @@ Public Class lapphieusuachua
 
         If (tbnoidung.Text = Nothing) Then
             MessageBox.Show("Vui lòng nhập lại nội dung sửa chữa ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Else
+        ElseIf (tbtiencong.Text <> Nothing) Then
             Dim vt As vattuDTO
             vt = cbbvattu.SelectedItem
             Dim tt = vt.dongia * nudsoluong.Value + Convert.ToInt32(tbtiencong.Text)
@@ -171,7 +176,8 @@ Public Class lapphieusuachua
             buildgv(listhienthi)
             tongtrigia += tt
             tbtongtien.Text = tongtrigia
-
+        Else
+            MessageBox.Show("Vui lòng nhập tiền công sửa chữa ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
 
@@ -278,4 +284,6 @@ Public Class lapphieusuachua
         Dim mK As Integer = Asc(e.KeyChar)
         e.Handled = Not ((mK >= 48 And mK <= 57) Or mK = 8)
     End Sub
+
+
 End Class

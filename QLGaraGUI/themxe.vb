@@ -7,14 +7,10 @@ Public Class themxe
     Private xBus As xeBus
     Private cxBus As chuxeBus
     Private hxBus As hieuxeBus
-    Private chuxegia As chuxeDTO
-    Private hieuxegia As hieuxeDTO
     Private Sub themxe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         xBus = New xeBus()
         cxBus = New chuxeBus()
         hxBus = New hieuxeBus()
-        chuxegia = New chuxeDTO()
-        hieuxegia = New hieuxeDTO()
 
 
         Dim listchuxe = New List(Of chuxeDTO)
@@ -28,7 +24,7 @@ Public Class themxe
         End If
         cbbtenchuxe.DataSource = New BindingSource(listchuxe, String.Empty)
         cbbtenchuxe.DisplayMember = "Tenchuxe"
-        cbbtenchuxe.ValueMember = "Machuxe"
+        cbbtenchuxe.ValueMember = "Tenchuxe"
 
 
         Dim listhieuxe = New List(Of hieuxeDTO)
@@ -134,7 +130,7 @@ Public Class themxe
 
 
     Private Function kiemtra()
-        Dim a As chuxeDTO
+        Dim a = New chuxeDTO()
         Dim b As hieuxeDTO
         If (tbbienso.Text = Nothing Or tbmachuxe.Text = Nothing Or tbmahieuxe.Text = Nothing Or loadchuxe(a) = False Or loadhieuxe(b) = False) Then
             Return False
